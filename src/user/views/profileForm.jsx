@@ -51,12 +51,16 @@ class ProfileForm extends React.Component {
 								<CIControl 
 									id="password" 
 									label={_t('New Password')} 
-									type="password"/>
+									type="password"
+									optional={true}
+									/>
 								
 								<CIControl 
 									id="repeatPassword" 
 									label={_t('Repeat Password')} 
-									type="password"/>
+									type="password"
+									optional={!props.userProfileForm.password}
+									/>
 
 								<Button 
 									fullWidth 

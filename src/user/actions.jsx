@@ -57,13 +57,16 @@ export const updateProfile = props => dispatch =>
         binary: true
     }).then(user => 
         {
-            if (props.password !== props.repeatPassword)
+            if (props.password || props.repeatPassword)
+            {
+                if (props.password !== props.repeatPassword)
                 return dispatch({
                     type:ERROR, 
                     payload: _t("Passwords do not match")
                 })
 
-            user.password = props.password
+                user.password = props.password
+            }
 
             if (props.firstName) 
                 user.firstName = props.firstName
