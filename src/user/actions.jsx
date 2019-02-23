@@ -145,36 +145,37 @@ export const signIn = props => dispatch =>
 
 // sign up the user to couchdb
 export const signUp = props => dispatch =>
+{
+    if (props.password !== props.repeatPassword)
+        return dispatch({type: ERROR, payload: _t("Passwords do not match")})
+
     remotedb.signUp(props.username, props.password)
         .then(() => 
-        {
-            if (props.password !== props.repeatPassword)
-                dispatch({type: ERROR, payload: _t("Passwords do not match")})
-            else
-                db.put({
-                    _id:'User' + props.username, 
-                    cnt:1, 
-                    username: props.username,
-                    firstName: props.firstName, 
-                    lastName: props.lastName
-                })
-                .then(()=>
-                    db.get('User' + props.username, 
-                            {
-                                attachments: true, 
-                                binary: true
-                            })
-                    .then(doc => 
-                        dispatch({
-                            type: SIGNED_IN,  
-                            payload: doc
-                        })))
-        })
+            db.put({
+                _id:'User' + props.username, 
+                cnt:1, 
+                username: props.username,
+                firstName: props.firstName, 
+                lastName: props.lastName
+            })
+            .then(()=>
+                db.get('User' + props.username, 
+                        {
+                            attachments: true, 
+                            binary: true
+                        })
+                .then(doc => 
+                    dispatch({
+                        type: SIGNED_IN,
+                        payload: doc
+                    })))
+        )
         .catch ( err => 
             dispatch({
                 type: ERROR,  
                 payload: couchdbErrMessages[err.name] || _t("Network error")
         }))
+}
       
 
 // sign out the user from couchdb
