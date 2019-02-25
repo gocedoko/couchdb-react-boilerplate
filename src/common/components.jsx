@@ -18,6 +18,7 @@ export const CustomInputControl = props => {
 		        
                 <Input 
                     {...inputProps} 
+                    optional={String(props.optional)}
                     name={props.id} 
 			        value={props.value} 
                     onChange={e => onChange(props.id, e.target.value)} />
