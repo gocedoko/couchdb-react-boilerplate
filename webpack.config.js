@@ -2,9 +2,6 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: './src/common/index.jsx',
-  output: {
-    filename: 'index.js'
-  },
   devServer: { historyApiFallback: true },
   module: {
     rules: [
@@ -14,16 +11,22 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: [ "react", "es2015" ],
-            plugins:[require("babel-plugin-transform-object-rest-spread")]
+            "presets": [
+              "@babel/react",
+              [ 
+                "@babel/preset-env", 
+                { 
+                  targets: "> 0.25%, not dead", 
+                  useBuiltIns: "usage",
+                } 
+              ]
+            ]
           }
         }
       }
     ]
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: './src/common/index.html'
-    })
+    new HtmlWebPackPlugin({ template: './src/common/index.html' })
   ]
 };
