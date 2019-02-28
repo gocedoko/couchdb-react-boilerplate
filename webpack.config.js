@@ -1,6 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
-module.exports = {
+module.exports = (env, argv) => ({
   entry: './src/common/index.jsx',
   devServer: { historyApiFallback: true },
   module: {
@@ -27,6 +27,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebPackPlugin({ template: './src/common/index.html' })
+    new HtmlWebPackPlugin({ 
+      template: './src/common/index.html',
+      base: env.production ? '/couchdb-react-boilerplate/' : '/'
+    })
   ]
-};
+})
