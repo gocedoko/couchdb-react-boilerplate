@@ -47,22 +47,22 @@ class Index extends React.Component {
                 className={props.classes.content}>
                     <Switch>
                         <Route 
-                            path="/" 
+                            path={WP_CONF_BASE_URL}
                             component={props.signedIn ? Home : Landing} 
                             exact />
 
                         <Route 
-                            path="/signin" 
+                            path={`${WP_CONF_BASE_URL}signin`} 
                             component={Signin}
                             exact />
                         
                         <Route 
-                            path="/signup" 
+                            path={`${WP_CONF_BASE_URL}signup`}
                             component={Signup} 
                             exact />
 
                         <Route 
-                            path="/profile" 
+                            path={`${WP_CONF_BASE_URL}profile`} 
                             component={Profile} 
                             exact />
                     </Switch>
@@ -91,7 +91,7 @@ const StyledIndex = connect(
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter history={createBrowserHistory({basename: WP_CONF_BASE_URL})} >
+        <BrowserRouter basename={WP_CONF_BASE_URL} history={createBrowserHistory({basename: WP_CONF_BASE_URL})} >
             <SnackbarProvider maxSnack={3}>
                 <StyledIndex/>
             </SnackbarProvider>

@@ -72,7 +72,7 @@ class ProfileForm extends React.Component {
 								</Button>
 
 								<Link 
-									to="/" 
+									to={WP_CONF_BASE_URL}
 									className={props.classes.link}>
 										<Button 
 											fullWidth 

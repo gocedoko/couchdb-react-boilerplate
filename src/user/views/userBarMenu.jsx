@@ -13,7 +13,7 @@ class UserBarMenu extends React.Component {
 		
 			? <React.Fragment>
 				<Link 
-					to="/profile" 
+					to={`${WP_CONF_BASE_URL}profile`} 
 					className={props.classes.link}>
 						<Avatar 
 							className={props.classes.avatar} 
@@ -35,7 +35,7 @@ class UserBarMenu extends React.Component {
 			</React.Fragment>
 	
 			: <Link 
-					to="/signin" 
+					to={`${WP_CONF_BASE_URL}signin`} 
 					className={props.classes.link}>
 						<Button 
 							size="medium" 

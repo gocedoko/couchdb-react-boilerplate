@@ -57,7 +57,7 @@ class SignInForm extends React.Component {
 						</Button>
 
 						<Link 
-							to="/signup" 
+							to={`${WP_CONF_BASE_URL}signup`}
 							className={props.classes.link}>
 					
 								<Button 

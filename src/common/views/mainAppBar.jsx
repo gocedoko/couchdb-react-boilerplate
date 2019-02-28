@@ -22,7 +22,7 @@ class MainAppBar extends React.Component {
                             variant="h6" 
                             color="inherit" 
                             className={props.classes.title}>
-                                <Link to="/" className={props.classes.link}>
+                                <Link to={WP_CONF_BASE_URL} className={props.classes.link}>
                                     Couchdb-React Boilerplate
                                 </Link>
                         </Typography>

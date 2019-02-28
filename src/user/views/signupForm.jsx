@@ -75,7 +75,7 @@ class SignUpForm extends React.Component {
 							color="secondary" 
 							className={props.classes.submit}> 
 							
-								<Link to="/" className={props.classes.link}>
+								<Link to={WP_CONF_BASE_URL} className={props.classes.link}>
 									{_t('Cancel')}
 								</Link>
 						</Button>
