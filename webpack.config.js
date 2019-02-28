@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = (env, argv) => ({
   entry: './src/common/index.jsx',
   devServer: { historyApiFallback: true },
+  mode: env.production ? 'production' : 'development',
   module: {
     rules: [
       {

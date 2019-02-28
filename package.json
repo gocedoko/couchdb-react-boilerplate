@@ -4,8 +4,8 @@
   "description": "A boilerplate for a React-based single-page app and a Couchdb backend",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open",
+    "build": "webpack --env.production",
     "i18n": "grunt i18next"
   },
   "author": "Goce Dokoski",
