@@ -9,8 +9,9 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { Provider, connect } from "react-redux"
 import { BrowserRouter, Link, Route, Switch, Redirect } from 'react-router-dom'
+import { createBrowserHistory } from 'history';
 export { React, ReactDOM, Provider, connect, 
-        BrowserRouter, Link, Route, Switch, Redirect }
+        BrowserRouter, Link, Route, Switch, Redirect, createBrowserHistory }
 
 
 
