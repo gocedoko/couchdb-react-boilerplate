@@ -89,10 +89,9 @@ const StyledIndex = connect(
 )(withSnackbar(withStyles(styles)(Index)))
 
 
-
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename={WP_CONF_BASE_URL}>
             <SnackbarProvider maxSnack={3}>
                 <StyledIndex/>
             </SnackbarProvider>
