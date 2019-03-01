@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.com/gocedoko/couchdb-react-boilerplate.svg?branch=master)](https://travis-ci.com/gocedoko/couchdb-react-boilerplate)
+![dependencies Status](https://david-dm.org/gocedoko/couchdb-react-boilerplate.svg)
+![devDependencies Status](https://david-dm.org/gocedoko/couchdb-react-boilerplate/dev-status.svg)
 
 # CouchDB-React Boilerplate
 
