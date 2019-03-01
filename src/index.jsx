@@ -1,20 +1,20 @@
 import { React, ReactDOM, connect, Provider, BrowserRouter, Switch, Route, createBrowserHistory,
     withStyles, classNames, CssBaseline, SnackbarProvider, withSnackbar
-} from "./imports.jsx"
+} from "./common/imports.jsx"
 
 
-import store from "./store.jsx"
-import styles from "./style.jsx"
-import * as mainActions from "./actions.jsx"
-import * as userActions from "../user/actions.jsx"
+import store from "./common/store.jsx"
+import styles from "./common/style.jsx"
+import * as mainActions from "./common/actions.jsx"
+import * as userActions from "./user/actions.jsx"
 
 
-import MainAppBar from "./views/mainAppBar.jsx"
-import Home from "./views/home.jsx"
-import Landing from "./views/landing.jsx"
-import Signin from "../user/views/signinForm.jsx"
-import Signup from "../user/views/signupForm.jsx"
-import Profile from "../user/views/profileForm.jsx"
+import MainAppBar from "./common/views/mainAppBar.jsx"
+import Home from "./common/views/home.jsx"
+import Landing from "./common/views/landing.jsx"
+import Signin from "./user/views/signinForm.jsx"
+import Signup from "./user/views/signupForm.jsx"
+import Profile from "./user/views/profileForm.jsx"
 
 
 class Index extends React.Component {
