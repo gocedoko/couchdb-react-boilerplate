@@ -15,18 +15,16 @@ The purpose of this project is to help you get started with a very clean and up-
 
 1. Install, configure and run the [Apache CouchDB database engine](http://couchdb.apache.org/)
 
-2. Log into its Fauxton Web Interface: http://localhost:5984/_utils/index.html#login
+2. Log into its Fauxton web Interface: http://localhost:5984/_utils/index.html#login
 
-3. Create a database, for ex. with the name **test**
+3. Create a database
 
-4. Clone the repository with git: 
-
-`git clone https://github.com/gocedoko/couchdb-react-boilerplate.git`
+4. `git clone https://github.com/gocedoko/couchdb-react-boilerplate.git`
 
 5. `cd couchdb-react-boilerplate`
 
-6. Update the database name in the **config.json** file
+6. Update the database name in **config.json**
 
-7. npm install
+7. `npm install`
 
-8. npm start
+8. `npm start`
