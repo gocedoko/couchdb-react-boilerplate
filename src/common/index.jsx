@@ -91,7 +91,7 @@ const StyledIndex = connect(
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter basename={WP_CONF_BASE_URL} history={createBrowserHistory({basename: WP_CONF_BASE_URL})} >
+        <BrowserRouter history={createBrowserHistory({basename: WP_CONF_BASE_URL})} >
             <SnackbarProvider maxSnack={3}>
                 <StyledIndex/>
             </SnackbarProvider>
