@@ -19,7 +19,11 @@
     "testPathIgnorePatterns": [
       "<rootDir>/__tests__/setup/"
     ],
-    "collectCoverage": true
+    "collectCoverage": true,
+    "globals": {
+      "WP_CONF_REMOTE_DB_URL": "https://couchdb.home.kg:6984",
+      "WP_CONF_BASE_URL": "/"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
