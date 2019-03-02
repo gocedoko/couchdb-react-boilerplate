@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin")
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
 const config = require('./config.json')
 
@@ -31,6 +32,11 @@ module.exports = (env, argv) => {
           }
         }
       ]
+    },
+    optimization: env.prod && {
+      minimizer: [new UglifyJsPlugin({
+        test: [/\.js$/, /\.jsx$/]
+      })],
     },
     plugins: [
       new HtmlWebPackPlugin({ 
