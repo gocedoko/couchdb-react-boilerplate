@@ -1,3 +1,4 @@
 {
-    "remote_db_url":    "http://localhost:5984/test"
+    "remote_db_url_dev":    "http://localhost:5984/test",
+    "remote_db_url_prod":   "https://couchdb.home.kg:6984"
 }

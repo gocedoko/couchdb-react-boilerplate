@@ -45,7 +45,9 @@ module.exports = (env, argv) => {
       }),
       new webpack.DefinePlugin({
         WP_CONF_BASE_URL: JSON.stringify(base_url),
-        WP_CONF_REMOTE_DB_URL: JSON.stringify(config.remote_db_url)
+        WP_CONF_REMOTE_DB_URL: env.prod 
+          ? JSON.stringify(config.remote_db_url_prod) 
+          : JSON.stringify(config.remote_db_url_dev)
       })
     ]
   }
