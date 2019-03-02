@@ -6,15 +6,20 @@
   "scripts": {
     "start": "webpack-dev-server --env.dev --open",
     "build": "webpack --env.prod",
-    "test": "jest --detectOpenHandles",
+    "test": "jest",
     "test:watch": "jest --watch",
     "i18n": "grunt i18next"
   },
   "author": "Goce Dokoski",
   "license": "ISC",
   "jest": {
-    "setupFilesAfterEnv": ["<rootDir>__tests__/setup/setupEnzyme.js"],
-    "testPathIgnorePatterns": ["<rootDir>/__tests__/setup/"]
+    "setupFilesAfterEnv": [
+      "<rootDir>__tests__/setup/setupEnzyme.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/setup/"
+    ],
+    "collectCoverage": true
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -55,6 +60,7 @@
     "webpack-dev-server": "^3.2.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.2.5"
+    "@babel/polyfill": "^7.2.5",
+    "codecov": "^3.2.0"
   }
 }

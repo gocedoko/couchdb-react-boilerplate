@@ -2,6 +2,7 @@ node_modules
 build
 dist
 local_db
+coverage
 npm-debug.log
 .env
 .DS_Store
