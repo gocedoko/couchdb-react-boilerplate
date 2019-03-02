@@ -13,6 +13,8 @@ cache:
 before_script:
   - npm run build
   - npm test
+
+after_success:
   - codecov --token=$CODECOV_TOKEN
 
 deploy:
