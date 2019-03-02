@@ -1,17 +1,12 @@
-// Config
-
-import config from "../../config.json"
-
-
 // React and related
 
 import React from "react"
 import ReactDOM from "react-dom"
 import { Provider, connect } from "react-redux"
-import { BrowserRouter, Link, Route, Switch, Redirect } from 'react-router-dom'
+import { Router, Link, Route, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history';
 export { React, ReactDOM, Provider, connect, 
-        BrowserRouter, Link, Route, Switch, Redirect, createBrowserHistory }
+        Router , Link, Route, Switch, Redirect, createBrowserHistory }
 
 
 
@@ -21,7 +16,7 @@ import PouchDB from 'pouchdb'
 import PouchDBAuth from 'pouchdb-authentication'
 
     PouchDB.plugin(PouchDBAuth)
-    const remotedb = new PouchDB(config.remote_db_url, {skip_setup: true})
+    const remotedb = new PouchDB(WP_CONF_REMOTE_DB_URL, {skip_setup: true})
     const db = new PouchDB('local_db')
     db.sync(remotedb, {live: true, retry: true})
 
@@ -123,7 +118,16 @@ export { LANGUAGE_MENU }
 
 
 
-// Create binary Image URL 
+// Helper functions 
 
-const createImageURL = image => URL.createObjectURL(new Blob([image.data], {type: image.type}))
-export { createImageURL }
+import utf8 from "utf8"
+
+// prepare an ObjectURL ready to set as an image src
+const createImageURL = image => 
+    URL.createObjectURL(new Blob([image.data], {type: image.type}))
+
+// convert a UTF8 string into HEX, to be used for the per-user databases in CouchDB
+const utf8ToHex = str =>
+    utf8.encode(str).split('').map(c => c.charCodeAt(0).toString(16)).join('')
+
+export { createImageURL, utf8ToHex }

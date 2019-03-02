@@ -1,4 +1,4 @@
-import { _t, createImageURL } from "./imports.jsx"
+import { _t, createImageURL, utf8ToHex } from "./imports.jsx"
 import thunkMiddleware from 'redux-thunk'
 import { createStore, applyMiddleware  } from "redux"
 import { createLogger } from 'redux-logger'
@@ -94,6 +94,7 @@ const reducerFunctions = {
             username: payload.username, 
             firstName: payload.firstName,
             lastName: payload.lastName,
+            hexUsername: utf8ToHex(payload.username),
             imageData: payload.img && payload._attachments[payload.img]
                 ? createImageURL(payload._attachments[payload.img]) 
                 : "../../assets/img/userm.png"

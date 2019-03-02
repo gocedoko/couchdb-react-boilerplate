@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const webpack = require('webpack')
+const config = require('./config.json')
 
 module.exports = (env, argv) => {
   const base_url = env.prod ? '/couchdb-react-boilerplate/' : '/'
@@ -37,7 +38,8 @@ module.exports = (env, argv) => {
         base: base_url
       }),
       new webpack.DefinePlugin({
-        WP_CONF_BASE_URL: JSON.stringify(base_url)
+        WP_CONF_BASE_URL: JSON.stringify(base_url),
+        WP_CONF_REMOTE_DB_URL: JSON.stringify(config.remote_db_url)
       })
     ]
   }

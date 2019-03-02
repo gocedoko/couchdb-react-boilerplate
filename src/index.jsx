@@ -1,4 +1,4 @@
-import { React, ReactDOM, connect, Provider, BrowserRouter, Switch, Route, createBrowserHistory,
+import { React, ReactDOM, connect, Provider, Router, Switch, Route, createBrowserHistory,
     withStyles, classNames, CssBaseline, SnackbarProvider, withSnackbar
 } from "./common/imports.jsx"
 
@@ -91,10 +91,10 @@ const StyledIndex = connect(
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter history={createBrowserHistory({basename: WP_CONF_BASE_URL})} >
+        <Router history={createBrowserHistory({basename: WP_CONF_BASE_URL})} >
             <SnackbarProvider maxSnack={3}>
                 <StyledIndex/>
             </SnackbarProvider>
-        </BrowserRouter>
+        </Router>
     </Provider>, document.getElementById("index")
 );

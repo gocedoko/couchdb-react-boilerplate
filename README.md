@@ -17,9 +17,9 @@ The purpose of this project is to help you get started with a very clean and up-
 
 ## Get started
 
-1. Install, configure and run the [Apache CouchDB database engine](http://couchdb.apache.org/)
+1. Install, configure and run the [Apache CouchDB database engine](http://couchdb.apache.org/) on ypur machine
 
-2. Log into its Fauxton web Interface: http://localhost:5984/_utils/index.html#login
+2. Open the Fauxton web interface: http://localhost:5984/_utils/index.html#login and log in
 
 3. Create a database
 
