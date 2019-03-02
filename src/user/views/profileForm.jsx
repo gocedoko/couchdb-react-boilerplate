@@ -26,7 +26,6 @@ class ProfileForm extends React.Component {
 				
 						<UImgControl 
 							id="imagePath" 
-							label={_t('Image')} 
 							classes={props.classes}
 							username={props.userProfileForm.username}
 							src={props.userProfileForm.imageData} />

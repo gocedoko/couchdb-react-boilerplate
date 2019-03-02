@@ -1,6 +1,7 @@
 node_modules
 build
 dist
+local_db
 npm-debug.log
 .env
 .DS_Store
