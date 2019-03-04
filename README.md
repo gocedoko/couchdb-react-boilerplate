@@ -32,3 +32,8 @@ The purpose of this project is to help you get started with a very clean and up-
 7. `npm install`
 
 8. `npm start`
+
+
+## Contributing
+
+Any suggestions and remarks regarding code style, libraries and used tools are very welcome via PR or email.
