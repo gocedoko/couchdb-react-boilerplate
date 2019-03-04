@@ -1,4 +1,4 @@
-import { i18n } from "./imports.jsx"
+import { i18n } from "../imports.jsx"
 
 export const SHOW_MENU =                "SHOW_MENU"
 export const LANGUAGE_CHANGED =         "LANGUAGE_CHANGED"

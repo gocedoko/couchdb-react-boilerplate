@@ -1,4 +1,4 @@
-import { React, FormControl, Input, InputLabel, Avatar } from "../common/imports.jsx"
+import { React, FormControl, Input, InputLabel, Avatar } from "../imports.jsx"
 
 
 // A Material-UI input control with a dedicated label

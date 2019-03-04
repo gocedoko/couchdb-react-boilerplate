@@ -1,6 +1,6 @@
 import { React, connect, _t, Redirect, Link,
 		withStyles, Avatar, Button, LockOutlinedIcon, Paper, Typography
-} from "../../common/imports.jsx"
+} from "../../imports.jsx"
 
 import styles from "../style.jsx"
 import * as userActions from "../actions.jsx"
@@ -57,7 +57,7 @@ class SignInForm extends React.Component {
 						</Button>
 
 						<Link 
-							to={`${WP_CONF_BASE_URL}signup`}
+							to="/signup"
 							className={props.classes.link}>
 					
 								<Button 

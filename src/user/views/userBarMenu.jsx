@@ -1,5 +1,5 @@
 import { React, connect, _t, Button, withStyles, Avatar, LockOutlinedIcon, Link } 
-	from "../../common/imports.jsx"
+	from "../../imports.jsx"
 
 import styles from "../style.jsx"
 import * as userActions from "../actions.jsx"
@@ -13,7 +13,7 @@ class UserBarMenu extends React.Component {
 		
 			? <React.Fragment>
 				<Link 
-					to={`${WP_CONF_BASE_URL}profile`} 
+					to={"/profile"} 
 					className={props.classes.link}>
 						<Avatar 
 							className={props.classes.avatar} 
@@ -35,7 +35,7 @@ class UserBarMenu extends React.Component {
 			</React.Fragment>
 	
 			: <Link 
-					to={`${WP_CONF_BASE_URL}signin`} 
+					to="/signin"
 					className={props.classes.link}>
 						<Button 
 							size="medium" 

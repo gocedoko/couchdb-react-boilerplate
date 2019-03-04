@@ -1,6 +1,6 @@
 import { React, ReactDOM, connect, Provider, Router, Switch, Route, createBrowserHistory,
     withStyles, classNames, CssBaseline, SnackbarProvider, withSnackbar
-} from "./common/imports.jsx"
+} from "./imports.jsx"
 
 
 import store from "./common/store.jsx"
@@ -47,22 +47,22 @@ class Index extends React.Component {
                 className={props.classes.content}>
                     <Switch>
                         <Route 
-                            path={WP_CONF_BASE_URL}
+                            path="/"
                             component={props.signedIn ? Home : Landing} 
                             exact />
 
                         <Route 
-                            path={`${WP_CONF_BASE_URL}signin`} 
+                            path="/signin" 
                             component={Signin}
                             exact />
                         
                         <Route 
-                            path={`${WP_CONF_BASE_URL}signup`}
+                            path={"/signup"}
                             component={Signup} 
                             exact />
 
                         <Route 
-                            path={`${WP_CONF_BASE_URL}profile`} 
+                            path={"/profile"} 
                             component={Profile} 
                             exact />
                     </Switch>

@@ -1,5 +1,5 @@
 import { React, connect, _t, Redirect, Link,
-		withStyles, Paper, Typography, Button} from "../../common/imports.jsx"
+		withStyles, Paper, Typography, Button} from "../../imports.jsx"
 
 import { CustomInputControl, UserImageControl } from "../../common/components.jsx"
 
@@ -71,7 +71,7 @@ class ProfileForm extends React.Component {
 								</Button>
 
 								<Link 
-									to={WP_CONF_BASE_URL}
+									to="/"
 									className={props.classes.link}>
 										<Button 
 											fullWidth 

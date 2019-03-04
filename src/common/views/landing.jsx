@@ -1,4 +1,4 @@
-import { React, withStyles, connect, _t, Paper, Typography } from "../imports.jsx"
+import { React, withStyles, connect, _t, Paper, Typography } from "../../imports.jsx"
 import styles from "../style.jsx"
 
 const Landing = props =>

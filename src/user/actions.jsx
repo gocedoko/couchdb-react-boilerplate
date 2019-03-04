@@ -1,4 +1,4 @@
-import { db, remotedb, _t } from "../common/imports.jsx"
+import { db, remotedb, _t } from "../imports.jsx"
 
 export const UPDATE_FORM_FIELD =            "UPDATE_FORM_FIELD"
 export const INIT_PROFILE_FORM =            "INIT_PROFILE_FORM"

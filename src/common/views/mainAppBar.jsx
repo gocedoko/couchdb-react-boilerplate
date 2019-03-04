@@ -1,7 +1,7 @@
 import { React, connect, i18n, _t, lngs, withStyles, classNames, Link, 
     IconButton, Badge, Menu, MenuItem, Typography, Toolbar, LanguageIcon,
     AppBar, LANGUAGE_MENU
-} from "../imports.jsx"
+} from "../../imports.jsx"
 
 import styles from "../style.jsx"
 import * as mainActions from "../actions.jsx"
@@ -22,7 +22,7 @@ class MainAppBar extends React.Component {
                             variant="h6" 
                             color="inherit" 
                             className={props.classes.title}>
-                                <Link to={WP_CONF_BASE_URL} className={props.classes.link}>
+                                <Link to="/" className={props.classes.link}>
                                     Couchdb-React Boilerplate
                                 </Link>
                         </Typography>
