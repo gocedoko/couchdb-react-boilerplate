@@ -1,4 +1,4 @@
-import { React, withStyles,  } from '../../src/common/imports.jsx'
+import { React, withStyles,  } from '../../src/imports.jsx'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import configureStore from 'redux-mock-store'
