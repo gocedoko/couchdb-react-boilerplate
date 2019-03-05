@@ -1,7 +1,5 @@
-import { _t, createImageURL, utf8ToHex } from "../imports.jsx"
-import thunkMiddleware from 'redux-thunk'
-import { createStore, applyMiddleware  } from "redux"
-import { createLogger } from 'redux-logger'
+import { createStore, applyMiddleware, thunkMiddleware, createLogger, 
+        _t, createImageURL, utf8ToHex } from "./imports.jsx"
 
 const initialState = {
 }

@@ -5,8 +5,14 @@ import ReactDOM from "react-dom"
 import { Provider, connect } from "react-redux"
 import { Router, Link, Route, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history';
+
+import { createStore, applyMiddleware  } from "redux"
+import thunkMiddleware from 'redux-thunk'
+import { createLogger } from 'redux-logger'
+
 export { React, ReactDOM, Provider, connect, 
-        Router , Link, Route, Switch, Redirect, createBrowserHistory }
+        Router , Link, Route, Switch, Redirect, createBrowserHistory,
+        createStore, applyMiddleware, thunkMiddleware, createLogger }
 
 
 

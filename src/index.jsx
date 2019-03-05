@@ -3,7 +3,7 @@ import { React, ReactDOM, connect, Provider, Router, Switch, Route, createBrowse
 } from "./imports.jsx"
 
 
-import store from "./common/store.jsx"
+import store from "./store.jsx"
 import styles from "./common/style.jsx"
 import * as mainActions from "./common/actions.jsx"
 import * as userActions from "./user/actions.jsx"
