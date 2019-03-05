@@ -50,7 +50,7 @@ exports[`<UserImageControl /> render() component is rendered exactly like the la
     }
   }
   id="imagePath"
-  src="../../assets/img/userm.png"
+  src="assets/img/userm.png"
   username="testUserName"
 />
 `;

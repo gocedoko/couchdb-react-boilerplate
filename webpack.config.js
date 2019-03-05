@@ -1,7 +1,9 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
 const config = require('./config.json')
+
+const HtmlWebPackPlugin = require("html-webpack-plugin")
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = (env, argv) => {
   const base_url = env.prod ? '/couchdb-react-boilerplate/' : '/'
@@ -43,6 +45,9 @@ module.exports = (env, argv) => {
         template: './src/index.html',
         base: base_url
       }),
+      new CopyPlugin([
+        { from: 'assets/', to: 'assets/' },
+      ]),
       new webpack.DefinePlugin({
         WP_CONF_BASE_URL: JSON.stringify(base_url),
         WP_CONF_REMOTE_DB_URL: env.prod 

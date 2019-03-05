@@ -52,7 +52,7 @@ const reducerFunctions = {
 
         const imageData = payload._attachments[payload.img]
             ? createImageURL(payload._attachments[payload.img]) 
-            : "../../assets/img/userm.png"
+            : "assets/img/userm.png"
         
         return {
             ...state, 
@@ -97,7 +97,7 @@ const reducerFunctions = {
             hexUsername: utf8ToHex(payload.username),
             imageData: payload.img && payload._attachments[payload.img]
                 ? createImageURL(payload._attachments[payload.img]) 
-                : "../../assets/img/userm.png"
+                : "assets/img/userm.png"
         },
         infoMsg: `${payload.firstName} ${payload.lastName} ${_t('is signed in')}!`
     }),

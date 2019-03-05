@@ -23,7 +23,7 @@ describe('<UserImageControl />', () => {
         id="imagePath" 
 				classes={props.classes}
 				username="testUserName"
-				src="../../assets/img/userm.png"
+				src="assets/img/userm.png"
       />)
       expect(toJson(shallow(<UICInstance/>).dive())).toMatchSnapshot()
     })

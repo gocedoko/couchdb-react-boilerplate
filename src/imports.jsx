@@ -28,9 +28,9 @@ export { PouchDB, db, remotedb }
 
 import i18n from 'i18next'
 import LngDetector from 'i18next-browser-languagedetector'
-import en from "../assets/i18n/en/translation.json"
-import de from "../assets/i18n/de/translation.json"
-import zh from "../assets/i18n/zh/translation.json"
+import en from "../i18n/en/translation.json"
+import de from "../i18n/de/translation.json"
+import zh from "../i18n/zh/translation.json"
 
     i18n.use(LngDetector).init({
         debug: true,

@@ -6,7 +6,6 @@ module.exports = function(grunt) {
 	    i18next: {
 	        dev: {
 	            src: 'src/**/*.{js,jsx}',
-	            dest: 'assets',
 	            options: {
 					func: {
 						list: ['_t', 'i18n.t'],
@@ -14,7 +13,7 @@ module.exports = function(grunt) {
 					},
 	                lngs: ['en'],
 	                resource: {
-	                    loadPath: 'assets/i18n/{{lng}}/{{ns}}.json',
+	                    loadPath: 'i18n/{{lng}}/{{ns}}.json',
 	                    savePath: 'i18n/{{lng}}/{{ns}}.json'
 	                }
 	            }
