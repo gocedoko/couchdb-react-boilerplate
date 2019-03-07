@@ -45,7 +45,7 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
             "entries": Array [
               Object {
                 "hash": "",
-                "key": "glzgyi",
+                "key": "frnc1m",
                 "pathname": "/",
                 "search": "",
                 "state": undefined,
@@ -59,7 +59,7 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
             "listen": [Function],
             "location": Object {
               "hash": "",
-              "key": "glzgyi",
+              "key": "frnc1m",
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -652,7 +652,7 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                       type="hidden"
                       value="just a dummy because of a chrome bug"
                     />
-                    <CIControl
+                    <Component
                       autoFocus={true}
                       form="signInForm"
                       id="username"
@@ -1005,8 +1005,8 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
-                    <CIControl
+                    </Component>
+                    <Component
                       form="signInForm"
                       id="password"
                       label="Password"
@@ -1355,7 +1355,7 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
+                    </Component>
                     <WithStyles(Button)
                       className="Component-submit-8"
                       color="primary"

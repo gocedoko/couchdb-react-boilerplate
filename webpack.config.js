@@ -35,11 +35,6 @@ module.exports = (env, argv) => {
         }
       ]
     },
-    optimization: env.prod && {
-      minimizer: [new UglifyJsPlugin({
-        test: [/\.js$/, /\.jsx$/]
-      })],
-    },
     plugins: [
       new HtmlWebPackPlugin({ 
         template: './src/index.html',

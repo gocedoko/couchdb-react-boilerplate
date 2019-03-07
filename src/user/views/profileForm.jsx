@@ -8,25 +8,35 @@ import * as userActions from "../actions.jsx"
 
 
 class _ProfileForm extends React.Component {
+	constructor(props)
+	{
+		super(props)
+		this.CIControl = attr  => <CustomInputControl
+										{...attr}
+										value={props.userProfileForm[attr.id] 
+												|| props.signedInUserData[attr.id]}
+										onChange={props.updateFormField}
+									/>
+
+		this.UImgControl = attr => <UserImageControl
+										{...attr}
+										username={props.userProfileForm.username
+												|| props.signedInUserData.username}
+										onChange={props.updateProfileImg}
+									/>
+	}
+
 
 	componentDidMount(){
 		this.props.initProfileForm()
 	}
 
+
 	render(){
 		const props = this.props
-		
-		const CIControl = attr  => <CustomInputControl
-										{...attr}
-										value={props.userProfileForm[attr.id]}
-										onChange={props.updateFormField}
-									/>
+		const CIControl = this.CIControl
+		const UImgControl = this.UImgControl
 
-		const UImgControl = attr => <UserImageControl
-										{...attr}
-										username={props.userProfileForm.username}
-										onChange={props.updateProfileImg}
-									/>
 
 		return props.signedIn ? 
 

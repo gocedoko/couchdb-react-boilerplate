@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, thunkMiddleware, createLogger,
 const initialState = {
     signInForm: {},
     signUpForm: {},
-    profileForm: {}
+    userProfileForm: {}
 }
 
 const reducerFunctions = {
