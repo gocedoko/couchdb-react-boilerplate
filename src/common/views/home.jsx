@@ -1,7 +1,7 @@
 import { React, withStyles, connect, _t, Paper, Typography } from "../../imports.jsx"
 import styles from "../style.jsx"
 
-const Home = props =>
+export const _Home = props =>
 	<main className={props.classes.main}>
 		<Paper 
 			className={props.classes.paper}>
@@ -21,8 +21,8 @@ const Home = props =>
 	</main>
 
 
-export default connect(
+export const Home = connect(
 	state => ({
 		signedInUserData: state.signedInUserData,
 	})
-)(withStyles(styles)(Home))
+)(withStyles(styles)(_Home))

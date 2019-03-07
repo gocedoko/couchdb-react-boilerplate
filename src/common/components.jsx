@@ -37,7 +37,8 @@ export const UserImageControl = props =>
             onClick={() => document.getElementById('userImageInput').click()}/>
 
         <Input 
-            id="userImageInput" 
+            id="userImageInput"
+            name="userImageInput"
             type="file" 
             className={props.classes.hidden} 
             onChange={e => props.onChange(props.username, e.target.value, e.target.files)}/>

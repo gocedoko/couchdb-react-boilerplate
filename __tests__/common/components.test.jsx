@@ -1,7 +1,6 @@
 import { React, withStyles,  } from '../../src/imports.jsx'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import configureStore from 'redux-mock-store'
 
 import { CustomInputControl, UserImageControl } from '../../src/common/components.jsx'
 
@@ -19,12 +18,13 @@ describe('<UserImageControl />', () => {
   describe('render()', () => {
     test('component is rendered exactly like the last time', () => 
     {
-      const UICInstance = withStyles(styles)(props => <UserImageControl 
-        id="imagePath" 
-				classes={props.classes}
-				username="testUserName"
-				src="assets/img/userm.png"
-      />)
+      const UICInstance = withStyles(styles)(props => 
+        <UserImageControl 
+          id="imagePath" 
+          classes={props.classes}
+          username="testUserName"
+          src="assets/img/userm.png"
+        />)
       expect(toJson(shallow(<UICInstance/>).dive())).toMatchSnapshot()
     })
   })

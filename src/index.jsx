@@ -9,12 +9,12 @@ import * as mainActions from "./common/actions.jsx"
 import * as userActions from "./user/actions.jsx"
 
 
-import MainAppBar from "./common/views/mainAppBar.jsx"
-import Home from "./common/views/home.jsx"
-import Landing from "./common/views/landing.jsx"
-import Signin from "./user/views/signinForm.jsx"
-import Signup from "./user/views/signupForm.jsx"
-import Profile from "./user/views/profileForm.jsx"
+import { MainAppBar } from "./common/views/mainAppBar.jsx"
+import { Home } from "./common/views/home.jsx"
+import { Landing } from "./common/views/landing.jsx"
+import { SignInForm } from "./user/views/signinForm.jsx"
+import { SignUpForm } from "./user/views/signupForm.jsx"
+import { ProfileForm } from "./user/views/profileForm.jsx"
 
 
 class Index extends React.Component {
@@ -53,17 +53,17 @@ class Index extends React.Component {
 
                         <Route 
                             path="/signin" 
-                            component={Signin}
+                            component={SignInForm}
                             exact />
                         
                         <Route 
                             path={"/signup"}
-                            component={Signup} 
+                            component={SignUpForm} 
                             exact />
 
                         <Route 
                             path={"/profile"} 
-                            component={Profile} 
+                            component={ProfileForm} 
                             exact />
                     </Switch>
             </main>

@@ -3,7 +3,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { Provider, connect } from "react-redux"
-import { Router, Link, Route, Switch, Redirect } from 'react-router-dom'
+import { Router, MemoryRouter, Link, Route, Switch, Redirect } from 'react-router-dom'
 import { createBrowserHistory } from 'history';
 
 import { createStore, applyMiddleware  } from "redux"
@@ -11,7 +11,7 @@ import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 
 export { React, ReactDOM, Provider, connect, 
-        Router , Link, Route, Switch, Redirect, createBrowserHistory,
+        Router, MemoryRouter, Link, Route, Switch, Redirect, createBrowserHistory,
         createStore, applyMiddleware, thunkMiddleware, createLogger }
 
 
@@ -39,7 +39,7 @@ import de from "../i18n/de/translation.json"
 import zh from "../i18n/zh/translation.json"
 
     i18n.use(LngDetector).init({
-        debug: true,
+        debug: false,
         detection: {
             lookupQuerystring: 'lng',
             lookupCookie: 'i18next',
@@ -71,6 +71,7 @@ export { i18n, _t, lngs }
 // Material-UI
 
 import classNames from 'classnames'
+import { createRender, createMount  } from '@material-ui/core/test-utils'
 import withStyles from '@material-ui/core/styles/withStyles'
 import AppBar from '@material-ui/core/AppBar'
 import Avatar from '@material-ui/core/Avatar'
@@ -103,10 +104,14 @@ import DashboardIcon from '@material-ui/icons/Dashboard'
 import LanguageIcon from '@material-ui/icons/Language'
 import PeopleIcon from '@material-ui/icons/People'
 import Tooltip from '@material-ui/core/Tooltip'
+const mui_render = createRender()
+const mui_mount = createMount ()
+
 export { AppBar, Avatar, Button, CssBaseline, FormControl, FormControlLabel, Checkbox, Input, InputLabel, 
         LockOutlinedIcon, Paper, Typography, Drawer, Toolbar, List, Divider, IconButton, Badge, Menu, 
         MenuItem, MenuIcon, ChevronLeftIcon, NotificationsIcon, ListItem, ListItemIcon, ListItemText, 
-        DashboardIcon, LanguageIcon, PeopleIcon, Tooltip, withStyles, PersonIcon, classNames }
+        DashboardIcon, LanguageIcon, PeopleIcon, Tooltip, withStyles, PersonIcon, classNames, 
+        mui_render, mui_mount }
 
 
 
@@ -122,6 +127,14 @@ export { SnackbarProvider, withSnackbar }
 const LANGUAGE_MENU ="LANGUAGE_MENU"
 export { LANGUAGE_MENU }
 
+
+
+// Unit Tests
+
+import { shallow, mount, render } from 'enzyme'
+import toJson from 'enzyme-to-json'
+import configureStore from 'redux-mock-store'
+export { shallow, mount, render, toJson, configureStore }
 
 
 // Helper functions 

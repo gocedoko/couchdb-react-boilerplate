@@ -1,7 +1,7 @@
 import { React, withStyles, connect, _t, Paper, Typography } from "../../imports.jsx"
 import styles from "../style.jsx"
 
-const Landing = props =>
+export const _Landing = props =>
     <main className={props.classes.main}>
         <Paper 
             className={props.classes.paper}>
@@ -23,4 +23,4 @@ const Landing = props =>
     </main>
 
 
-export default connect()(withStyles(styles)(Landing))
+export const Landing = connect()(withStyles(styles)(_Landing))

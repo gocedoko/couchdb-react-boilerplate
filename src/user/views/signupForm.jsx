@@ -7,9 +7,15 @@ import * as userActions from "../actions.jsx"
 import { CustomInputControl } from "../../common/components.jsx"
 
 
-class SignUpForm extends React.Component {
+class _SignUpForm extends React.Component {
 	render(){
 		const props = this.props
+
+		const CIControl = attr  => <CustomInputControl
+										{...attr}
+										value={props.signUpForm[attr.id]}
+										onChange={props.updateFormField}
+									/>
 
 		return props.signedIn 
 		
@@ -61,6 +67,7 @@ class SignUpForm extends React.Component {
 							label={_t('Email Address')} />
 
 						<Button 
+							id="signupButton"
 							fullWidth 
 							variant="contained" 
 							color="primary" 
@@ -86,27 +93,20 @@ class SignUpForm extends React.Component {
 }
 
 
-// connect the general input control to state, by its "id"
-const CIControl = connect(
-	null,
-	dispatch => ({ 
-		onChange: (id, value) => dispatch(userActions.updateFormField(id, value, "signUpForm")) 
-	})
-)(CustomInputControl)
-
-
 
 // connect the sign up form to state 
-export default connect(
+const SignUpForm = connect(
 	state => ({
 		signedIn: state.signedIn,
 		signUpForm: state.signUpForm,
 		language: state.language
 	}),
 	dispatch => ({
+		updateFormField: (id, value) => dispatch(userActions.updateFormField(id, value, "signUpForm")),
 		signUp: props => dispatch(userActions.signUp(props))
 	})
-)(withStyles(styles)(SignUpForm))
+)(withStyles(styles)(_SignUpForm))
 
 
 
+export { _SignUpForm, SignUpForm }

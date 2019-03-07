@@ -5,9 +5,9 @@ import { React, connect, i18n, _t, lngs, withStyles, classNames, Link,
 
 import styles from "../style.jsx"
 import * as mainActions from "../actions.jsx"
-import UserBarMenu from "../../user/views/userBarMenu.jsx"
+import { UserBarMenu } from "../../user/views/userBarMenu.jsx"
 
-class MainAppBar extends React.Component {
+class _MainAppBar extends React.Component {
 	render(){
         const props = this.props
 
@@ -33,6 +33,7 @@ class MainAppBar extends React.Component {
                             onClose={props.showMenu}>
                                 {lngs.map(l =>
                                     <MenuItem 
+                                        className="languageMenuItem"
                                         key={l.shortName} 
                                         selected={i18n.language == l.shortName} 
                                         onClick={() => props.changeLanguage(l)}>
@@ -42,6 +43,7 @@ class MainAppBar extends React.Component {
                         </Menu>
                     
                         <IconButton 
+                            id="languageMenuButton"
                             color="inherit" 
                             aria-haspopup="true" 
                             buttonRef={node => this.anchorEl = node}
@@ -61,7 +63,7 @@ class MainAppBar extends React.Component {
 }
 
 
-export default connect(
+const MainAppBar = connect(
 	state => ({
         shownMenu: state.shownMenu,
         language: state.language,
@@ -70,4 +72,8 @@ export default connect(
 		showMenu: menu => dispatch(mainActions.showMenu(menu)),
         changeLanguage: language => dispatch(mainActions.changeLanguage(language)),
 	})
-)(withStyles(styles)(MainAppBar))
+)(withStyles(styles)(_MainAppBar))
+
+
+
+export { _MainAppBar, MainAppBar }

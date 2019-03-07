@@ -5,7 +5,7 @@ import styles from "../style.jsx"
 import * as userActions from "../actions.jsx"
 
 
-class UserBarMenu extends React.Component {
+class _UserBarMenu extends React.Component {
 	render(){
 		const props = this.props
 
@@ -23,6 +23,7 @@ class UserBarMenu extends React.Component {
 				</Link>
 
 				<Button 
+					id="signoutButton"
 					size="medium" 
 					color="inherit" 
 					className={props.classes.margin}
@@ -49,7 +50,7 @@ class UserBarMenu extends React.Component {
 
 
 // connect the user bar to state
-export default connect(
+const UserBarMenu = connect(
 	state => ({
 		language: state.language,
 		signedIn: state.signedIn,
@@ -58,4 +59,8 @@ export default connect(
 	dispatch => ({
 		signOut: (firstName, lastName) => dispatch(userActions.signOut(firstName, lastName))
 	})
-)(withStyles(styles)(UserBarMenu))
+)(withStyles(styles)(_UserBarMenu))
+
+
+
+export { _UserBarMenu, UserBarMenu }

@@ -2,6 +2,9 @@ import { createStore, applyMiddleware, thunkMiddleware, createLogger,
         _t, createImageURL, utf8ToHex } from "./imports.jsx"
 
 const initialState = {
+    signInForm: {},
+    signUpForm: {},
+    profileForm: {}
 }
 
 const reducerFunctions = {

@@ -7,7 +7,7 @@ import styles from "../style.jsx"
 import * as userActions from "../actions.jsx"
 
 
-class ProfileForm extends React.Component {
+class _ProfileForm extends React.Component {
 
 	componentDidMount(){
 		this.props.initProfileForm()
@@ -15,6 +15,18 @@ class ProfileForm extends React.Component {
 
 	render(){
 		const props = this.props
+		
+		const CIControl = attr  => <CustomInputControl
+										{...attr}
+										value={props.userProfileForm[attr.id]}
+										onChange={props.updateFormField}
+									/>
+
+		const UImgControl = attr => <UserImageControl
+										{...attr}
+										username={props.userProfileForm.username}
+										onChange={props.updateProfileImg}
+									/>
 
 		return props.signedIn ? 
 
@@ -62,6 +74,7 @@ class ProfileForm extends React.Component {
 									/>
 
 								<Button 
+									id="submitButton"
 									fullWidth 
 									variant="contained" 
 									color="primary" 
@@ -96,39 +109,26 @@ class ProfileForm extends React.Component {
 }
 
 
-// connect the general input control to state, by its "id"
-const CIControl = connect(
-	(state, ownProps) => ({
-		value: state.userProfileForm[ownProps.id] || state.signedInUserData[ownProps.id]
-	}),
-	dispatch => ({ 
-		onChange: (id, value) => dispatch(
-			userActions.updateFormField(id, value, "userProfileForm")),
-	})
-)(CustomInputControl)
-
-
-
-// connect the user image control to state
-const UImgControl = connect(
-	state => ({
-		username: state.userProfileForm.username
-	}),
-	dispatch => ({ 
-		onChange: (username, path, files) => dispatch(userActions.addUserImg(username, path, files[0]))
-	})
-)(UserImageControl)
-
-
-
 // connect the edit user profile form to state 
-export default connect(
+const ProfileForm = connect(
 	state => ({
 		signedIn: state.signedIn,
-		userProfileForm: state.userProfileForm
+		userProfileForm: state.userProfileForm,
+		signedInUserData: state.signedInUserData
 	}),
 	dispatch => ({
 		initProfileForm: () => dispatch(userActions.initProfileForm()),
+
+		updateFormField: (id, value) => 
+			dispatch(userActions.updateFormField(id, value, "userProfileForm")),
+
+		updateProfileImg: (username, path, files) => 
+			dispatch(userActions.addUserImg(username, path, files[0])),
+
 		updateProfile: props => dispatch(userActions.updateProfile(props))
 	})	
-)(withStyles(styles)(ProfileForm))
+)(withStyles(styles)(_ProfileForm))
+
+
+
+export { _ProfileForm, ProfileForm }
