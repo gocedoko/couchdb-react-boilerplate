@@ -10,20 +10,20 @@ export const CustomInputControl = props => {
                 fullWidth
                 margin="normal" 
                 required={!props.optional}>
-		   	    
+
                 <InputLabel 
                     htmlFor={props.id}>
                         {props.label}
                 </InputLabel>
-		        
+
                 <Input 
                     {...inputProps} 
                     optional={String(props.optional)}
                     name={props.id} 
-			        value={props.value} 
+                    value={props.value} 
                     onChange={e => onChange(props.id, e.target.value)} />
 
-		    </FormControl>
+            </FormControl>
 }
 
 

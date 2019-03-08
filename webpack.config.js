@@ -15,6 +15,12 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          enforce: "pre",
+          test: [/\.js$/, /\.jsx$/],
+          exclude: /node_modules/,
+          loader: "eslint-loader"
+        },
+        {
           test: [/\.js$/, /\.jsx$/],
           exclude: /node_modules/,
           use: {
@@ -34,6 +40,11 @@ module.exports = (env, argv) => {
           }
         }
       ]
+    },
+    optimization: env.prod && {
+      minimizer: [new UglifyJsPlugin({
+        test: [/\.js$/, /\.jsx$/]
+      })],
     },
     plugins: [
       new HtmlWebPackPlugin({ 

@@ -81,7 +81,7 @@ export const updateProfile = props => dispatch =>
                         payload: doc
                     }))
             
-            ).catch(err => 
+            ).catch(() => 
                 dispatch({
                     type: ERROR, 
                     payload: _t("Error while updating the user profile")
@@ -189,7 +189,7 @@ export const signOut = (firstName, lastName) => dispatch =>
                     lastName: lastName
                 }}))
         
-        .catch(err => 
+        .catch(() => 
             dispatch({
                 type: ERROR,  
                 payload: _t("Couldn't sign out")

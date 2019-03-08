@@ -1,4 +1,4 @@
-import { React, connect, i18n, _t, lngs, withStyles, classNames, Link, 
+import { React, connect, i18n, lngs, withStyles, classNames, Link, 
     IconButton, Badge, Menu, MenuItem, Typography, Toolbar, LanguageIcon,
     AppBar, LANGUAGE_MENU
 } from "../../imports.jsx"
