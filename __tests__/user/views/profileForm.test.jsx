@@ -25,6 +25,7 @@ describe('render()', () => {
 	const defaultProps = {
 		signedIn: true,
 		userProfileForm: {},
+		signedInUserData: {},
 		initProfileForm: initProfileFormMockFn,
 		updateProfileImg: updateProfileImgMockFn, 
 		updateFormField: updateFormFieldMockFn,

@@ -7,10 +7,6 @@ node_js:
 install:
   - npm install codecov
   
-cache:
-  directories:
-    - "$HOME/.npm"
-
 before_script:
   - npm run build
   - npm test

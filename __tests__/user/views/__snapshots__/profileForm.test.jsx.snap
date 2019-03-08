@@ -28,6 +28,7 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
     }
   }
   signedIn={true}
+  signedInUserData={Object {}}
   updateFormField={[MockFunction]}
   updateProfile={[MockFunction]}
   updateProfileImg={[MockFunction]}
@@ -79,6 +80,7 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
       }
     }
     signedIn={true}
+    signedInUserData={Object {}}
     updateFormField={[MockFunction]}
     updateProfile={[MockFunction]}
     updateProfileImg={[MockFunction]}
@@ -104,7 +106,7 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
             "entries": Array [
               Object {
                 "hash": "",
-                "key": "c2imc2",
+                "key": "961k73",
                 "pathname": "/",
                 "search": "",
                 "state": undefined,
@@ -118,7 +120,7 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
             "listen": [Function],
             "location": Object {
               "hash": "",
-              "key": "c2imc2",
+              "key": "961k73",
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -165,6 +167,7 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
             }
           }
           signedIn={true}
+          signedInUserData={Object {}}
           updateFormField={[MockFunction]}
           updateProfile={[MockFunction]}
           updateProfileImg={[MockFunction]}
@@ -225,7 +228,7 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
                 <div
                   className="MuiPaper-root-163 MuiPaper-elevation2-167 MuiPaper-rounded-164 Component-paper-2"
                 >
-                  <UImgControl
+                  <Component
                     classes={
                       Object {
                         "avatar": "Component-avatar-3",
@@ -429,7 +432,7 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
                         </Input>
                       </WithStyles(Input)>
                     </UserImageControl>
-                  </UImgControl>
+                  </Component>
                   <WithStyles(Typography)
                     component="h1"
                     variant="h5"
@@ -877,7 +880,7 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
                   <form
                     className="Component-form-7"
                   >
-                    <CIControl
+                    <Component
                       id="firstName"
                       label="First Name"
                     >
@@ -1221,8 +1224,8 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
-                    <CIControl
+                    </Component>
+                    <Component
                       id="lastName"
                       label="Last Name"
                     >
@@ -1566,8 +1569,8 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
-                    <CIControl
+                    </Component>
+                    <Component
                       id="password"
                       label="New Password"
                       optional={true}
@@ -1912,8 +1915,8 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
-                    <CIControl
+                    </Component>
+                    <Component
                       id="repeatPassword"
                       label="Repeat Password"
                       optional={false}
@@ -2263,7 +2266,7 @@ exports[`<_ProfileForm /> render() when logged in, shows profile form filled in 
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
+                    </Component>
                     <WithStyles(Button)
                       className="Component-submit-8"
                       color="primary"

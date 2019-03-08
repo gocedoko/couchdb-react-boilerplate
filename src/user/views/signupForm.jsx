@@ -8,14 +8,20 @@ import { CustomInputControl } from "../../common/components.jsx"
 
 
 class _SignUpForm extends React.Component {
-	render(){
-		const props = this.props
-
-		const CIControl = attr  => <CustomInputControl
+	constructor(props)
+	{
+		super(props)
+		this.CIControl = attr  => <CustomInputControl
 										{...attr}
 										value={props.signUpForm[attr.id]}
 										onChange={props.updateFormField}
 									/>
+
+	}
+
+	render(){
+		const props = this.props
+		const CIControl = this.CIControl
 
 		return props.signedIn 
 		

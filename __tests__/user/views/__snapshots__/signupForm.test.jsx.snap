@@ -45,7 +45,7 @@ exports[`<_SignUpForm /> render() when not logged in, shows empty sign in form 1
             "entries": Array [
               Object {
                 "hash": "",
-                "key": "82pu8v",
+                "key": "qwhd2f",
                 "pathname": "/",
                 "search": "",
                 "state": undefined,
@@ -59,7 +59,7 @@ exports[`<_SignUpForm /> render() when not logged in, shows empty sign in form 1
             "listen": [Function],
             "location": Object {
               "hash": "",
-              "key": "82pu8v",
+              "key": "qwhd2f",
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -648,7 +648,7 @@ exports[`<_SignUpForm /> render() when not logged in, shows empty sign in form 1
                   <form
                     className="Component-form-7"
                   >
-                    <CIControl
+                    <Component
                       autoFocus={true}
                       id="firstName"
                       label="First Name"
@@ -993,8 +993,8 @@ exports[`<_SignUpForm /> render() when not logged in, shows empty sign in form 1
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
-                    <CIControl
+                    </Component>
+                    <Component
                       id="lastName"
                       label="Last Name"
                     >
@@ -1331,8 +1331,8 @@ exports[`<_SignUpForm /> render() when not logged in, shows empty sign in form 1
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
-                    <CIControl
+                    </Component>
+                    <Component
                       id="username"
                       label="New Username"
                     >
@@ -1669,8 +1669,8 @@ exports[`<_SignUpForm /> render() when not logged in, shows empty sign in form 1
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
-                    <CIControl
+                    </Component>
+                    <Component
                       id="password"
                       label="New Password"
                       type="password"
@@ -2011,8 +2011,8 @@ exports[`<_SignUpForm /> render() when not logged in, shows empty sign in form 1
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
-                    <CIControl
+                    </Component>
+                    <Component
                       id="repeatPassword"
                       label="Repeat Password"
                       type="password"
@@ -2353,8 +2353,8 @@ exports[`<_SignUpForm /> render() when not logged in, shows empty sign in form 1
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
-                    <CIControl
+                    </Component>
+                    <Component
                       id="email"
                       label="Email Address"
                     >
@@ -2691,7 +2691,7 @@ exports[`<_SignUpForm /> render() when not logged in, shows empty sign in form 1
                           </FormControl>
                         </WithStyles(FormControl)>
                       </CustomInputControl>
-                    </CIControl>
+                    </Component>
                     <WithStyles(Button)
                       className="Component-submit-8"
                       color="primary"
