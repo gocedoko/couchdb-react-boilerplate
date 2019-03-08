@@ -28,7 +28,8 @@ describe('render()', () => {
 	}
 
 	test('when logged out, renders succesfully', () => 
-		expect(mui_mount(<_SignInFormInstance {...defaultProps}/>)).toMatchSnapshot())
+		expect(toJson(mui_mount(<_SignInFormInstance {...defaultProps}/>).find(_SignInForm)))
+			.toMatchSnapshot())
 
 	test('when logged in, redirects to home', () => 
 		expect(toJson(mui_mount(<_SignInFormInstance
@@ -38,7 +39,8 @@ describe('render()', () => {
 	)
 
 	test('when not logged in, shows empty sign in form', () => 
-		expect(toJson(mui_mount(<_SignInFormInstance {...defaultProps}/>))).toMatchSnapshot())
+		expect(toJson(mui_mount(<_SignInFormInstance {...defaultProps}/>).find(_SignInForm)))
+			.toMatchSnapshot())
 
 	test('calls updateFormField when changing textfields', () => 
 	{  

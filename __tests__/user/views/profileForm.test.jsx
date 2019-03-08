@@ -33,7 +33,8 @@ describe('render()', () => {
 	}
 
 	test('when logged in, renders succesfully', () => 
-		expect(mui_mount(<_ProfileFormInstance {...defaultProps}/>)).toMatchSnapshot())
+		expect(toJson(mui_mount(<_ProfileFormInstance {...defaultProps}/>).find(_ProfileForm)))
+			.toMatchSnapshot())
 	
 	test('calls initProfileForm when mounted', () => 
 		expect(initProfileFormMockFn.mock.calls.length).toBe(1))
@@ -56,7 +57,7 @@ describe('render()', () => {
 										repeatPassword: 'password',
 										imageData: "assets/img/userm.png"
 									}}
-								/>))).toMatchSnapshot())
+								/>).find(_ProfileForm))).toMatchSnapshot())
 
 	test('calls updateFormField when changing textfields', () => 
 	{  

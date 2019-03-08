@@ -26,11 +26,14 @@ describe('render()', () => {
 	}
 
 	test('when logged in, renders succesfully', () => 
-		expect(mui_mount(<_UserBarMenuInstance {...defaultProps}/>)).toMatchSnapshot())
+		expect(toJson(mui_mount(<_UserBarMenuInstance {...defaultProps}/>).find(_UserBarMenu)))
+			.toMatchSnapshot())
 
 	test('when logged out, renders succesfully', () => 
-		expect(mui_mount(<_UserBarMenuInstance {...defaultProps} signedIn={false}/>))
-			.toMatchSnapshot())
+		expect(toJson(mui_mount(<_UserBarMenuInstance 
+									{...defaultProps} 
+									signedIn={false}
+								/>).find(_UserBarMenu))).toMatchSnapshot())
 
 	test('calls signOut when clicking the sign out button', () => 
 	{  

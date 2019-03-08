@@ -10,11 +10,6 @@ const store = mockStore()
 describe('common actions', () => {
     
     beforeEach(() => store.clearActions())
-
-    
-    
-    
-    
     
     test('showMenu dispatches correct action and payload', () => {
         store.dispatch(actions.showMenu())
