@@ -8,20 +8,8 @@ import { CustomInputControl } from "../../common/components.jsx"
 
 
 class _SignInForm extends React.Component {
-	constructor(props)
-	{
-		super(props)
-		this.CIControl = attr  => <CustomInputControl
-										{...attr}
-										value={props.signInForm[attr.id]}
-										onChange={props.updateFormField}
-									/>
-
-	}
-
 	render(){
 		const props = this.props
-		const CIControl = this.CIControl
 
 		return props.signedIn 
 		
@@ -47,15 +35,19 @@ class _SignInForm extends React.Component {
 							type="hidden" 
 							value="just a dummy because of a chrome bug"/>
 		
-						<CIControl 
+						<CustomInputControl 
 							id="username" 
 							label={_t('Username')} 
+							value={props.signInForm["username"]}
+							onChange={props.updateFormField}
 							autoFocus 
 							form={"signInForm"}/>
 
-						<CIControl 
+						<CustomInputControl 
 							id="password" 
 							label={_t('Password')} 
+							value={props.signInForm["password"]}
+							onChange={props.updateFormField}
 							type="password" 
 							form={"signInForm"}/>
 

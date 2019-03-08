@@ -8,25 +8,6 @@ import * as userActions from "../actions.jsx"
 
 
 class _ProfileForm extends React.Component {
-	constructor(props)
-	{
-		super(props)
-		this.CIControl = attr  => <CustomInputControl
-										{...attr}
-										value={props.userProfileForm[attr.id] 
-												|| props.signedInUserData[attr.id]}
-										onChange={props.updateFormField}
-									/>
-
-		this.UImgControl = attr => <UserImageControl
-										{...attr}
-										username={props.userProfileForm.username
-												|| props.signedInUserData.username}
-										onChange={props.updateProfileImg}
-									/>
-	}
-
-
 	componentDidMount(){
 		this.props.initProfileForm()
 	}
@@ -34,9 +15,6 @@ class _ProfileForm extends React.Component {
 
 	render(){
 		const props = this.props
-		const CIControl = this.CIControl
-		const UImgControl = this.UImgControl
-
 
 		return props.signedIn ? 
 
@@ -46,11 +24,14 @@ class _ProfileForm extends React.Component {
 				<main className={props.classes.main}>
 					<Paper className={props.classes.paper}>
 				
-						<UImgControl 
+						<UserImageControl 
 							id="imagePath" 
 							classes={props.classes}
-							username={props.userProfileForm.username}
-							src={props.userProfileForm.imageData} />
+							src={props.userProfileForm.imageData} 
+							username={props.userProfileForm.username
+												|| props.signedInUserData.username}
+							onChange={props.updateProfileImg}
+							/>
 	
 						<Typography 
 							component="h1" 
@@ -61,24 +42,38 @@ class _ProfileForm extends React.Component {
 						<form className={props.classes.form}>
 							<React.Fragment>
 					
-								<CIControl 
+								<CustomInputControl 
 									id="firstName" 
-									label={_t('First Name')}/>
+									label={_t('First Name')}
+										value={props.userProfileForm.firstName
+												|| props.signedInUserData.firstName}
+										onChange={props.updateFormField}
+									/>
 					
-								<CIControl 
+								<CustomInputControl 
 									id="lastName" 
-									label={_t('Last Name')}/>
+									label={_t('Last Name')}
+										value={props.userProfileForm.lastName
+												|| props.signedInUserData.lastName}
+										onChange={props.updateFormField}
+									/>
 					
-								<CIControl 
+								<CustomInputControl 
 									id="password" 
-									label={_t('New Password')} 
+									label={_t('New Password')}
+										value={props.userProfileForm.password
+												|| props.signedInUserData.password}
+										onChange={props.updateFormField} 
 									type="password"
 									optional={true}
 									/>
 								
-								<CIControl 
+								<CustomInputControl 
 									id="repeatPassword" 
-									label={_t('Repeat Password')} 
+									label={_t('Repeat Password')}
+									value={props.userProfileForm.repeatPassword
+												|| props.signedInUserData.repeatPassword}
+										onChange={props.updateFormField} 
 									type="password"
 									optional={!props.userProfileForm.password}
 									/>

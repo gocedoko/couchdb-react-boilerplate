@@ -8,20 +8,8 @@ import { CustomInputControl } from "../../common/components.jsx"
 
 
 class _SignUpForm extends React.Component {
-	constructor(props)
-	{
-		super(props)
-		this.CIControl = attr  => <CustomInputControl
-										{...attr}
-										value={props.signUpForm[attr.id]}
-										onChange={props.updateFormField}
-									/>
-
-	}
-
 	render(){
 		const props = this.props
-		const CIControl = this.CIControl
 
 		return props.signedIn 
 		
@@ -44,33 +32,44 @@ class _SignUpForm extends React.Component {
 
 					<form className={props.classes.form}>
 
-						<CIControl 
+						<CustomInputControl 
 							id="firstName" 
 							label={_t('First Name')} 
+							value={props.signUpForm.firstName}
+							onChange={props.updateFormField}
 							autoFocus={true}/>
 						
-						<CIControl 
+						<CustomInputControl 
 							id="lastName" 
-							label={_t('Last Name')}/>
-
+							label={_t('Last Name')}
+							value={props.signUpForm.lastName}
+							onChange={props.updateFormField}/>
 						
-						<CIControl 
+						<CustomInputControl 
 							id="username" 
-							label={_t('New Username')} />
+							label={_t('New Username')}
+							value={props.signUpForm.username}
+							onChange={props.updateFormField} />
 						
-						<CIControl 
+						<CustomInputControl 
 							id="password" 
 							label={_t('New Password')} 
+							value={props.signUpForm.password}
+							onChange={props.updateFormField}
 							type="password" />
 						
-						<CIControl 
+						<CustomInputControl 
 							id="repeatPassword" 
 							label={_t('Repeat Password')} 
+							value={props.signUpForm.repeatPassword}
+							onChange={props.updateFormField}
 							type="password" />
 						
-						<CIControl 
+						<CustomInputControl 
 							id="email" 
-							label={_t('Email Address')} />
+							label={_t('Email Address')}
+							value={props.signUpForm.email}
+							onChange={props.updateFormField} />
 
 						<Button 
 							id="signupButton"
