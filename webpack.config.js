@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const config = require('./config.json')
 
 const HtmlWebPackPlugin = require("html-webpack-plugin")
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = (env, argv) => {
@@ -42,9 +42,7 @@ module.exports = (env, argv) => {
       ]
     },
     optimization: env.prod && {
-      minimizer: [new UglifyJsPlugin({
-        test: [/\.js$/, /\.jsx$/]
-      })],
+      minimizer: [new TerserPlugin()]
     },
     plugins: [
       new HtmlWebPackPlugin({ 
