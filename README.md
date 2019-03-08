@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.com/gocedoko/couchdb-react-boilerplate.svg?branch=master)](https://travis-ci.com/gocedoko/couchdb-react-boilerplate)
 ![dependencies Status](https://david-dm.org/gocedoko/couchdb-react-boilerplate.svg)
 ![devDependencies Status](https://david-dm.org/gocedoko/couchdb-react-boilerplate/dev-status.svg)
+![Live Demo](https://img.shields.io/badge/live-demo-blue.svg)
 ![jest](https://aleen42.github.io/badges/src/jest_1.svg)
 [![codecov](https://codecov.io/gh/gocedoko/couchdb-react-boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/gocedoko/couchdb-react-boilerplate)
 
