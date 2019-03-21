@@ -65,7 +65,7 @@ const reducerFunctions = {
                 ...state.userProfileForm, 
                 imageData: imageData
             },
-            infoMsg: `${_t('Successfully updated user image for')} ${payload.firstName} ${payload.lastName}`
+            infoMsg: `${_t('Successfully updated user image for')} ${state.signedInUserData.firstName} ${state.signedInUserData.lastName}`
         }
     },
 
