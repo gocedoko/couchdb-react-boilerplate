@@ -591,48 +591,60 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
               type="hidden"
               value="just a dummy because of a chrome bug"
             />
-            <Component
+            <CustomInputControl
               autoFocus={true}
               form="signInForm"
               id="username"
               label="Username"
+              onChange={[MockFunction]}
             >
-              <CustomInputControl
-                autoFocus={true}
-                form="signInForm"
-                id="username"
-                label="Username"
-                onChange={[MockFunction]}
+              <WithStyles(FormControl)
+                fullWidth={true}
+                margin="normal"
+                required={true}
               >
-                <WithStyles(FormControl)
+                <FormControl
+                  classes={
+                    Object {
+                      "fullWidth": "MuiFormControl-fullWidth-87",
+                      "marginDense": "MuiFormControl-marginDense-86",
+                      "marginNormal": "MuiFormControl-marginNormal-85",
+                      "root": "MuiFormControl-root-84",
+                    }
+                  }
+                  component="div"
+                  disabled={false}
+                  error={false}
                   fullWidth={true}
                   margin="normal"
                   required={true}
+                  variant="standard"
                 >
-                  <FormControl
-                    classes={
-                      Object {
-                        "fullWidth": "MuiFormControl-fullWidth-87",
-                        "marginDense": "MuiFormControl-marginDense-86",
-                        "marginNormal": "MuiFormControl-marginNormal-85",
-                        "root": "MuiFormControl-root-84",
-                      }
-                    }
-                    component="div"
-                    disabled={false}
-                    error={false}
-                    fullWidth={true}
-                    margin="normal"
-                    required={true}
-                    variant="standard"
+                  <div
+                    className="MuiFormControl-root-84 MuiFormControl-marginNormal-85 MuiFormControl-fullWidth-87"
                   >
-                    <div
-                      className="MuiFormControl-root-84 MuiFormControl-marginNormal-85 MuiFormControl-fullWidth-87"
+                    <WithStyles(WithFormControlContext(InputLabel))
+                      htmlFor="username"
                     >
-                      <WithStyles(WithFormControlContext(InputLabel))
+                      <WithFormControlContext(InputLabel)
+                        classes={
+                          Object {
+                            "animated": "MuiInputLabel-animated-96",
+                            "disabled": "MuiInputLabel-disabled-90",
+                            "error": "MuiInputLabel-error-91",
+                            "filled": "MuiInputLabel-filled-97",
+                            "focused": "MuiInputLabel-focused-89",
+                            "formControl": "MuiInputLabel-formControl-93",
+                            "marginDense": "MuiInputLabel-marginDense-94",
+                            "outlined": "MuiInputLabel-outlined-98",
+                            "required": "MuiInputLabel-required-92",
+                            "root": "MuiInputLabel-root-88",
+                            "shrink": "MuiInputLabel-shrink-95",
+                          }
+                        }
                         htmlFor="username"
                       >
-                        <WithFormControlContext(InputLabel)
+                        <InputLabel
                           classes={
                             Object {
                               "animated": "MuiInputLabel-animated-96",
@@ -648,57 +660,55 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                               "shrink": "MuiInputLabel-shrink-95",
                             }
                           }
+                          disableAnimation={false}
                           htmlFor="username"
+                          muiFormControl={
+                            Object {
+                              "adornedStart": false,
+                              "disabled": false,
+                              "error": false,
+                              "filled": false,
+                              "focused": true,
+                              "margin": "normal",
+                              "onBlur": [Function],
+                              "onEmpty": [Function],
+                              "onFilled": [Function],
+                              "onFocus": [Function],
+                              "required": true,
+                              "variant": "standard",
+                            }
+                          }
                         >
-                          <InputLabel
+                          <WithStyles(WithFormControlContext(FormLabel))
+                            className="MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96 MuiInputLabel-shrink-95"
                             classes={
                               Object {
-                                "animated": "MuiInputLabel-animated-96",
                                 "disabled": "MuiInputLabel-disabled-90",
                                 "error": "MuiInputLabel-error-91",
-                                "filled": "MuiInputLabel-filled-97",
                                 "focused": "MuiInputLabel-focused-89",
-                                "formControl": "MuiInputLabel-formControl-93",
-                                "marginDense": "MuiInputLabel-marginDense-94",
-                                "outlined": "MuiInputLabel-outlined-98",
                                 "required": "MuiInputLabel-required-92",
-                                "root": "MuiInputLabel-root-88",
-                                "shrink": "MuiInputLabel-shrink-95",
                               }
                             }
-                            disableAnimation={false}
+                            data-shrink={true}
                             htmlFor="username"
-                            muiFormControl={
-                              Object {
-                                "adornedStart": false,
-                                "disabled": false,
-                                "error": false,
-                                "filled": false,
-                                "focused": true,
-                                "margin": "normal",
-                                "onBlur": [Function],
-                                "onEmpty": [Function],
-                                "onFilled": [Function],
-                                "onFocus": [Function],
-                                "required": true,
-                                "variant": "standard",
-                              }
-                            }
                           >
-                            <WithStyles(WithFormControlContext(FormLabel))
+                            <WithFormControlContext(FormLabel)
                               className="MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96 MuiInputLabel-shrink-95"
                               classes={
                                 Object {
-                                  "disabled": "MuiInputLabel-disabled-90",
-                                  "error": "MuiInputLabel-error-91",
-                                  "focused": "MuiInputLabel-focused-89",
-                                  "required": "MuiInputLabel-required-92",
+                                  "asterisk": "MuiFormLabel-asterisk-105",
+                                  "disabled": "MuiFormLabel-disabled-101 MuiInputLabel-disabled-90",
+                                  "error": "MuiFormLabel-error-102 MuiInputLabel-error-91",
+                                  "filled": "MuiFormLabel-filled-103",
+                                  "focused": "MuiFormLabel-focused-100 MuiInputLabel-focused-89",
+                                  "required": "MuiFormLabel-required-104 MuiInputLabel-required-92",
+                                  "root": "MuiFormLabel-root-99",
                                 }
                               }
                               data-shrink={true}
                               htmlFor="username"
                             >
-                              <WithFormControlContext(FormLabel)
+                              <FormLabel
                                 className="MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96 MuiInputLabel-shrink-95"
                                 classes={
                                   Object {
@@ -711,70 +721,82 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                                     "root": "MuiFormLabel-root-99",
                                   }
                                 }
+                                component="label"
                                 data-shrink={true}
                                 htmlFor="username"
-                              >
-                                <FormLabel
-                                  className="MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96 MuiInputLabel-shrink-95"
-                                  classes={
-                                    Object {
-                                      "asterisk": "MuiFormLabel-asterisk-105",
-                                      "disabled": "MuiFormLabel-disabled-101 MuiInputLabel-disabled-90",
-                                      "error": "MuiFormLabel-error-102 MuiInputLabel-error-91",
-                                      "filled": "MuiFormLabel-filled-103",
-                                      "focused": "MuiFormLabel-focused-100 MuiInputLabel-focused-89",
-                                      "required": "MuiFormLabel-required-104 MuiInputLabel-required-92",
-                                      "root": "MuiFormLabel-root-99",
-                                    }
+                                muiFormControl={
+                                  Object {
+                                    "adornedStart": false,
+                                    "disabled": false,
+                                    "error": false,
+                                    "filled": false,
+                                    "focused": true,
+                                    "margin": "normal",
+                                    "onBlur": [Function],
+                                    "onEmpty": [Function],
+                                    "onFilled": [Function],
+                                    "onFocus": [Function],
+                                    "required": true,
+                                    "variant": "standard",
                                   }
-                                  component="label"
+                                }
+                              >
+                                <label
+                                  className="MuiFormLabel-root-99 MuiFormLabel-focused-100 MuiInputLabel-focused-89 MuiFormLabel-required-104 MuiInputLabel-required-92 MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96 MuiInputLabel-shrink-95"
                                   data-shrink={true}
                                   htmlFor="username"
-                                  muiFormControl={
-                                    Object {
-                                      "adornedStart": false,
-                                      "disabled": false,
-                                      "error": false,
-                                      "filled": false,
-                                      "focused": true,
-                                      "margin": "normal",
-                                      "onBlur": [Function],
-                                      "onEmpty": [Function],
-                                      "onFilled": [Function],
-                                      "onFocus": [Function],
-                                      "required": true,
-                                      "variant": "standard",
-                                    }
-                                  }
                                 >
-                                  <label
-                                    className="MuiFormLabel-root-99 MuiFormLabel-focused-100 MuiInputLabel-focused-89 MuiFormLabel-required-104 MuiInputLabel-required-92 MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96 MuiInputLabel-shrink-95"
-                                    data-shrink={true}
-                                    htmlFor="username"
+                                  Username
+                                  <span
+                                    className="MuiFormLabel-asterisk-105"
                                   >
-                                    Username
-                                    <span
-                                      className="MuiFormLabel-asterisk-105"
-                                    >
-                                       *
-                                    </span>
-                                  </label>
-                                </FormLabel>
-                              </WithFormControlContext(FormLabel)>
-                            </WithStyles(WithFormControlContext(FormLabel))>
-                          </InputLabel>
-                        </WithFormControlContext(InputLabel)>
-                      </WithStyles(WithFormControlContext(InputLabel))>
-                      <WithStyles(Input)
+                                     *
+                                  </span>
+                                </label>
+                              </FormLabel>
+                            </WithFormControlContext(FormLabel)>
+                          </WithStyles(WithFormControlContext(FormLabel))>
+                        </InputLabel>
+                      </WithFormControlContext(InputLabel)>
+                    </WithStyles(WithFormControlContext(InputLabel))>
+                    <WithStyles(Input)
+                      autoFocus={true}
+                      form="signInForm"
+                      id="username"
+                      label="Username"
+                      name="username"
+                      onChange={[Function]}
+                      optional="undefined"
+                      value=""
+                    >
+                      <Input
                         autoFocus={true}
+                        classes={
+                          Object {
+                            "disabled": "MuiInput-disabled-109",
+                            "error": "MuiInput-error-111",
+                            "focused": "MuiInput-focused-108",
+                            "formControl": "MuiInput-formControl-107",
+                            "fullWidth": "MuiInput-fullWidth-113",
+                            "input": "MuiInput-input-114",
+                            "inputMarginDense": "MuiInput-inputMarginDense-115",
+                            "inputMultiline": "MuiInput-inputMultiline-116",
+                            "inputType": "MuiInput-inputType-117",
+                            "inputTypeSearch": "MuiInput-inputTypeSearch-118",
+                            "multiline": "MuiInput-multiline-112",
+                            "root": "MuiInput-root-106",
+                            "underline": "MuiInput-underline-110",
+                          }
+                        }
                         form="signInForm"
                         id="username"
                         label="Username"
                         name="username"
                         onChange={[Function]}
                         optional="undefined"
+                        value=""
                       >
-                        <Input
+                        <WithStyles(WithFormControlContext(InputBase))
                           autoFocus={true}
                           classes={
                             Object {
@@ -789,34 +811,43 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                               "inputType": "MuiInput-inputType-117",
                               "inputTypeSearch": "MuiInput-inputTypeSearch-118",
                               "multiline": "MuiInput-multiline-112",
-                              "root": "MuiInput-root-106",
-                              "underline": "MuiInput-underline-110",
+                              "root": "MuiInput-root-106 MuiInput-underline-110",
+                              "underline": null,
                             }
                           }
                           form="signInForm"
+                          fullWidth={false}
                           id="username"
+                          inputComponent="input"
                           label="Username"
+                          multiline={false}
                           name="username"
                           onChange={[Function]}
                           optional="undefined"
+                          type="text"
+                          value=""
                         >
-                          <WithStyles(WithFormControlContext(InputBase))
+                          <WithFormControlContext(InputBase)
                             autoFocus={true}
                             classes={
                               Object {
-                                "disabled": "MuiInput-disabled-109",
-                                "error": "MuiInput-error-111",
-                                "focused": "MuiInput-focused-108",
-                                "formControl": "MuiInput-formControl-107",
-                                "fullWidth": "MuiInput-fullWidth-113",
-                                "input": "MuiInput-input-114",
-                                "inputMarginDense": "MuiInput-inputMarginDense-115",
-                                "inputMultiline": "MuiInput-inputMultiline-116",
-                                "inputType": "MuiInput-inputType-117",
-                                "inputTypeSearch": "MuiInput-inputTypeSearch-118",
-                                "multiline": "MuiInput-multiline-112",
-                                "root": "MuiInput-root-106 MuiInput-underline-110",
-                                "underline": null,
+                                "adornedEnd": "MuiInputBase-adornedEnd-124",
+                                "adornedStart": "MuiInputBase-adornedStart-123",
+                                "disabled": "MuiInputBase-disabled-122 MuiInput-disabled-109",
+                                "error": "MuiInputBase-error-125 MuiInput-error-111",
+                                "focused": "MuiInputBase-focused-121 MuiInput-focused-108",
+                                "formControl": "MuiInputBase-formControl-120 MuiInput-formControl-107",
+                                "fullWidth": "MuiInputBase-fullWidth-128 MuiInput-fullWidth-113",
+                                "input": "MuiInputBase-input-129 MuiInput-input-114",
+                                "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-135",
+                                "inputAdornedStart": "MuiInputBase-inputAdornedStart-134",
+                                "inputMarginDense": "MuiInputBase-inputMarginDense-130 MuiInput-inputMarginDense-115",
+                                "inputMultiline": "MuiInputBase-inputMultiline-131 MuiInput-inputMultiline-116",
+                                "inputType": "MuiInputBase-inputType-132 MuiInput-inputType-117",
+                                "inputTypeSearch": "MuiInputBase-inputTypeSearch-133 MuiInput-inputTypeSearch-118",
+                                "marginDense": "MuiInputBase-marginDense-126",
+                                "multiline": "MuiInputBase-multiline-127 MuiInput-multiline-112",
+                                "root": "MuiInputBase-root-119 MuiInput-root-106 MuiInput-underline-110",
                               }
                             }
                             form="signInForm"
@@ -829,8 +860,9 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                             onChange={[Function]}
                             optional="undefined"
                             type="text"
+                            value=""
                           >
-                            <WithFormControlContext(InputBase)
+                            <InputBase
                               autoFocus={true}
                               classes={
                                 Object {
@@ -858,135 +890,114 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                               id="username"
                               inputComponent="input"
                               label="Username"
+                              muiFormControl={
+                                Object {
+                                  "adornedStart": false,
+                                  "disabled": false,
+                                  "error": false,
+                                  "filled": false,
+                                  "focused": true,
+                                  "margin": "normal",
+                                  "onBlur": [Function],
+                                  "onEmpty": [Function],
+                                  "onFilled": [Function],
+                                  "onFocus": [Function],
+                                  "required": true,
+                                  "variant": "standard",
+                                }
+                              }
                               multiline={false}
                               name="username"
                               onChange={[Function]}
                               optional="undefined"
                               type="text"
+                              value=""
                             >
-                              <InputBase
-                                autoFocus={true}
-                                classes={
-                                  Object {
-                                    "adornedEnd": "MuiInputBase-adornedEnd-124",
-                                    "adornedStart": "MuiInputBase-adornedStart-123",
-                                    "disabled": "MuiInputBase-disabled-122 MuiInput-disabled-109",
-                                    "error": "MuiInputBase-error-125 MuiInput-error-111",
-                                    "focused": "MuiInputBase-focused-121 MuiInput-focused-108",
-                                    "formControl": "MuiInputBase-formControl-120 MuiInput-formControl-107",
-                                    "fullWidth": "MuiInputBase-fullWidth-128 MuiInput-fullWidth-113",
-                                    "input": "MuiInputBase-input-129 MuiInput-input-114",
-                                    "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-135",
-                                    "inputAdornedStart": "MuiInputBase-inputAdornedStart-134",
-                                    "inputMarginDense": "MuiInputBase-inputMarginDense-130 MuiInput-inputMarginDense-115",
-                                    "inputMultiline": "MuiInputBase-inputMultiline-131 MuiInput-inputMultiline-116",
-                                    "inputType": "MuiInputBase-inputType-132 MuiInput-inputType-117",
-                                    "inputTypeSearch": "MuiInputBase-inputTypeSearch-133 MuiInput-inputTypeSearch-118",
-                                    "marginDense": "MuiInputBase-marginDense-126",
-                                    "multiline": "MuiInputBase-multiline-127 MuiInput-multiline-112",
-                                    "root": "MuiInputBase-root-119 MuiInput-root-106 MuiInput-underline-110",
-                                  }
-                                }
+                              <div
+                                className="MuiInputBase-root-119 MuiInput-root-106 MuiInput-underline-110 MuiInputBase-focused-121 MuiInput-focused-108 MuiInputBase-formControl-120 MuiInput-formControl-107"
                                 form="signInForm"
-                                fullWidth={false}
-                                id="username"
-                                inputComponent="input"
                                 label="Username"
-                                muiFormControl={
-                                  Object {
-                                    "adornedStart": false,
-                                    "disabled": false,
-                                    "error": false,
-                                    "filled": false,
-                                    "focused": true,
-                                    "margin": "normal",
-                                    "onBlur": [Function],
-                                    "onEmpty": [Function],
-                                    "onFilled": [Function],
-                                    "onFocus": [Function],
-                                    "required": true,
-                                    "variant": "standard",
-                                  }
-                                }
-                                multiline={false}
-                                name="username"
-                                onChange={[Function]}
+                                onClick={[Function]}
                                 optional="undefined"
-                                type="text"
                               >
-                                <div
-                                  className="MuiInputBase-root-119 MuiInput-root-106 MuiInput-underline-110 MuiInputBase-focused-121 MuiInput-focused-108 MuiInputBase-formControl-120 MuiInput-formControl-107"
-                                  form="signInForm"
-                                  label="Username"
-                                  onClick={[Function]}
-                                  optional="undefined"
-                                >
-                                  <input
-                                    aria-invalid={false}
-                                    autoFocus={true}
-                                    className="MuiInputBase-input-129 MuiInput-input-114"
-                                    disabled={false}
-                                    id="username"
-                                    name="username"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                    required={true}
-                                    type="text"
-                                  />
-                                </div>
-                              </InputBase>
-                            </WithFormControlContext(InputBase)>
-                          </WithStyles(WithFormControlContext(InputBase))>
-                        </Input>
-                      </WithStyles(Input)>
-                    </div>
-                  </FormControl>
-                </WithStyles(FormControl)>
-              </CustomInputControl>
-            </Component>
-            <Component
+                                <input
+                                  aria-invalid={false}
+                                  autoFocus={true}
+                                  className="MuiInputBase-input-129 MuiInput-input-114"
+                                  disabled={false}
+                                  id="username"
+                                  name="username"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  required={true}
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </InputBase>
+                          </WithFormControlContext(InputBase)>
+                        </WithStyles(WithFormControlContext(InputBase))>
+                      </Input>
+                    </WithStyles(Input)>
+                  </div>
+                </FormControl>
+              </WithStyles(FormControl)>
+            </CustomInputControl>
+            <CustomInputControl
               form="signInForm"
               id="password"
               label="Password"
+              onChange={[MockFunction]}
               type="password"
             >
-              <CustomInputControl
-                form="signInForm"
-                id="password"
-                label="Password"
-                onChange={[MockFunction]}
-                type="password"
+              <WithStyles(FormControl)
+                fullWidth={true}
+                margin="normal"
+                required={true}
               >
-                <WithStyles(FormControl)
+                <FormControl
+                  classes={
+                    Object {
+                      "fullWidth": "MuiFormControl-fullWidth-87",
+                      "marginDense": "MuiFormControl-marginDense-86",
+                      "marginNormal": "MuiFormControl-marginNormal-85",
+                      "root": "MuiFormControl-root-84",
+                    }
+                  }
+                  component="div"
+                  disabled={false}
+                  error={false}
                   fullWidth={true}
                   margin="normal"
                   required={true}
+                  variant="standard"
                 >
-                  <FormControl
-                    classes={
-                      Object {
-                        "fullWidth": "MuiFormControl-fullWidth-87",
-                        "marginDense": "MuiFormControl-marginDense-86",
-                        "marginNormal": "MuiFormControl-marginNormal-85",
-                        "root": "MuiFormControl-root-84",
-                      }
-                    }
-                    component="div"
-                    disabled={false}
-                    error={false}
-                    fullWidth={true}
-                    margin="normal"
-                    required={true}
-                    variant="standard"
+                  <div
+                    className="MuiFormControl-root-84 MuiFormControl-marginNormal-85 MuiFormControl-fullWidth-87"
                   >
-                    <div
-                      className="MuiFormControl-root-84 MuiFormControl-marginNormal-85 MuiFormControl-fullWidth-87"
+                    <WithStyles(WithFormControlContext(InputLabel))
+                      htmlFor="password"
                     >
-                      <WithStyles(WithFormControlContext(InputLabel))
+                      <WithFormControlContext(InputLabel)
+                        classes={
+                          Object {
+                            "animated": "MuiInputLabel-animated-96",
+                            "disabled": "MuiInputLabel-disabled-90",
+                            "error": "MuiInputLabel-error-91",
+                            "filled": "MuiInputLabel-filled-97",
+                            "focused": "MuiInputLabel-focused-89",
+                            "formControl": "MuiInputLabel-formControl-93",
+                            "marginDense": "MuiInputLabel-marginDense-94",
+                            "outlined": "MuiInputLabel-outlined-98",
+                            "required": "MuiInputLabel-required-92",
+                            "root": "MuiInputLabel-root-88",
+                            "shrink": "MuiInputLabel-shrink-95",
+                          }
+                        }
                         htmlFor="password"
                       >
-                        <WithFormControlContext(InputLabel)
+                        <InputLabel
                           classes={
                             Object {
                               "animated": "MuiInputLabel-animated-96",
@@ -1002,57 +1013,55 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                               "shrink": "MuiInputLabel-shrink-95",
                             }
                           }
+                          disableAnimation={false}
                           htmlFor="password"
+                          muiFormControl={
+                            Object {
+                              "adornedStart": false,
+                              "disabled": false,
+                              "error": false,
+                              "filled": false,
+                              "focused": false,
+                              "margin": "normal",
+                              "onBlur": [Function],
+                              "onEmpty": [Function],
+                              "onFilled": [Function],
+                              "onFocus": [Function],
+                              "required": true,
+                              "variant": "standard",
+                            }
+                          }
                         >
-                          <InputLabel
+                          <WithStyles(WithFormControlContext(FormLabel))
+                            className="MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96"
                             classes={
                               Object {
-                                "animated": "MuiInputLabel-animated-96",
                                 "disabled": "MuiInputLabel-disabled-90",
                                 "error": "MuiInputLabel-error-91",
-                                "filled": "MuiInputLabel-filled-97",
                                 "focused": "MuiInputLabel-focused-89",
-                                "formControl": "MuiInputLabel-formControl-93",
-                                "marginDense": "MuiInputLabel-marginDense-94",
-                                "outlined": "MuiInputLabel-outlined-98",
                                 "required": "MuiInputLabel-required-92",
-                                "root": "MuiInputLabel-root-88",
-                                "shrink": "MuiInputLabel-shrink-95",
                               }
                             }
-                            disableAnimation={false}
+                            data-shrink={false}
                             htmlFor="password"
-                            muiFormControl={
-                              Object {
-                                "adornedStart": false,
-                                "disabled": false,
-                                "error": false,
-                                "filled": false,
-                                "focused": false,
-                                "margin": "normal",
-                                "onBlur": [Function],
-                                "onEmpty": [Function],
-                                "onFilled": [Function],
-                                "onFocus": [Function],
-                                "required": true,
-                                "variant": "standard",
-                              }
-                            }
                           >
-                            <WithStyles(WithFormControlContext(FormLabel))
+                            <WithFormControlContext(FormLabel)
                               className="MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96"
                               classes={
                                 Object {
-                                  "disabled": "MuiInputLabel-disabled-90",
-                                  "error": "MuiInputLabel-error-91",
-                                  "focused": "MuiInputLabel-focused-89",
-                                  "required": "MuiInputLabel-required-92",
+                                  "asterisk": "MuiFormLabel-asterisk-105",
+                                  "disabled": "MuiFormLabel-disabled-101 MuiInputLabel-disabled-90",
+                                  "error": "MuiFormLabel-error-102 MuiInputLabel-error-91",
+                                  "filled": "MuiFormLabel-filled-103",
+                                  "focused": "MuiFormLabel-focused-100 MuiInputLabel-focused-89",
+                                  "required": "MuiFormLabel-required-104 MuiInputLabel-required-92",
+                                  "root": "MuiFormLabel-root-99",
                                 }
                               }
                               data-shrink={false}
                               htmlFor="password"
                             >
-                              <WithFormControlContext(FormLabel)
+                              <FormLabel
                                 className="MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96"
                                 classes={
                                   Object {
@@ -1065,61 +1074,72 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                                     "root": "MuiFormLabel-root-99",
                                   }
                                 }
+                                component="label"
                                 data-shrink={false}
                                 htmlFor="password"
-                              >
-                                <FormLabel
-                                  className="MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96"
-                                  classes={
-                                    Object {
-                                      "asterisk": "MuiFormLabel-asterisk-105",
-                                      "disabled": "MuiFormLabel-disabled-101 MuiInputLabel-disabled-90",
-                                      "error": "MuiFormLabel-error-102 MuiInputLabel-error-91",
-                                      "filled": "MuiFormLabel-filled-103",
-                                      "focused": "MuiFormLabel-focused-100 MuiInputLabel-focused-89",
-                                      "required": "MuiFormLabel-required-104 MuiInputLabel-required-92",
-                                      "root": "MuiFormLabel-root-99",
-                                    }
+                                muiFormControl={
+                                  Object {
+                                    "adornedStart": false,
+                                    "disabled": false,
+                                    "error": false,
+                                    "filled": false,
+                                    "focused": false,
+                                    "margin": "normal",
+                                    "onBlur": [Function],
+                                    "onEmpty": [Function],
+                                    "onFilled": [Function],
+                                    "onFocus": [Function],
+                                    "required": true,
+                                    "variant": "standard",
                                   }
-                                  component="label"
+                                }
+                              >
+                                <label
+                                  className="MuiFormLabel-root-99 MuiFormLabel-required-104 MuiInputLabel-required-92 MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96"
                                   data-shrink={false}
                                   htmlFor="password"
-                                  muiFormControl={
-                                    Object {
-                                      "adornedStart": false,
-                                      "disabled": false,
-                                      "error": false,
-                                      "filled": false,
-                                      "focused": false,
-                                      "margin": "normal",
-                                      "onBlur": [Function],
-                                      "onEmpty": [Function],
-                                      "onFilled": [Function],
-                                      "onFocus": [Function],
-                                      "required": true,
-                                      "variant": "standard",
-                                    }
-                                  }
                                 >
-                                  <label
-                                    className="MuiFormLabel-root-99 MuiFormLabel-required-104 MuiInputLabel-required-92 MuiInputLabel-root-88 MuiInputLabel-formControl-93 MuiInputLabel-animated-96"
-                                    data-shrink={false}
-                                    htmlFor="password"
+                                  Password
+                                  <span
+                                    className="MuiFormLabel-asterisk-105"
                                   >
-                                    Password
-                                    <span
-                                      className="MuiFormLabel-asterisk-105"
-                                    >
-                                       *
-                                    </span>
-                                  </label>
-                                </FormLabel>
-                              </WithFormControlContext(FormLabel)>
-                            </WithStyles(WithFormControlContext(FormLabel))>
-                          </InputLabel>
-                        </WithFormControlContext(InputLabel)>
-                      </WithStyles(WithFormControlContext(InputLabel))>
-                      <WithStyles(Input)
+                                     *
+                                  </span>
+                                </label>
+                              </FormLabel>
+                            </WithFormControlContext(FormLabel)>
+                          </WithStyles(WithFormControlContext(FormLabel))>
+                        </InputLabel>
+                      </WithFormControlContext(InputLabel)>
+                    </WithStyles(WithFormControlContext(InputLabel))>
+                    <WithStyles(Input)
+                      form="signInForm"
+                      id="password"
+                      label="Password"
+                      name="password"
+                      onChange={[Function]}
+                      optional="undefined"
+                      type="password"
+                      value=""
+                    >
+                      <Input
+                        classes={
+                          Object {
+                            "disabled": "MuiInput-disabled-109",
+                            "error": "MuiInput-error-111",
+                            "focused": "MuiInput-focused-108",
+                            "formControl": "MuiInput-formControl-107",
+                            "fullWidth": "MuiInput-fullWidth-113",
+                            "input": "MuiInput-input-114",
+                            "inputMarginDense": "MuiInput-inputMarginDense-115",
+                            "inputMultiline": "MuiInput-inputMultiline-116",
+                            "inputType": "MuiInput-inputType-117",
+                            "inputTypeSearch": "MuiInput-inputTypeSearch-118",
+                            "multiline": "MuiInput-multiline-112",
+                            "root": "MuiInput-root-106",
+                            "underline": "MuiInput-underline-110",
+                          }
+                        }
                         form="signInForm"
                         id="password"
                         label="Password"
@@ -1127,8 +1147,9 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                         onChange={[Function]}
                         optional="undefined"
                         type="password"
+                        value=""
                       >
-                        <Input
+                        <WithStyles(WithFormControlContext(InputBase))
                           classes={
                             Object {
                               "disabled": "MuiInput-disabled-109",
@@ -1142,34 +1163,42 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                               "inputType": "MuiInput-inputType-117",
                               "inputTypeSearch": "MuiInput-inputTypeSearch-118",
                               "multiline": "MuiInput-multiline-112",
-                              "root": "MuiInput-root-106",
-                              "underline": "MuiInput-underline-110",
+                              "root": "MuiInput-root-106 MuiInput-underline-110",
+                              "underline": null,
                             }
                           }
                           form="signInForm"
+                          fullWidth={false}
                           id="password"
+                          inputComponent="input"
                           label="Password"
+                          multiline={false}
                           name="password"
                           onChange={[Function]}
                           optional="undefined"
                           type="password"
+                          value=""
                         >
-                          <WithStyles(WithFormControlContext(InputBase))
+                          <WithFormControlContext(InputBase)
                             classes={
                               Object {
-                                "disabled": "MuiInput-disabled-109",
-                                "error": "MuiInput-error-111",
-                                "focused": "MuiInput-focused-108",
-                                "formControl": "MuiInput-formControl-107",
-                                "fullWidth": "MuiInput-fullWidth-113",
-                                "input": "MuiInput-input-114",
-                                "inputMarginDense": "MuiInput-inputMarginDense-115",
-                                "inputMultiline": "MuiInput-inputMultiline-116",
-                                "inputType": "MuiInput-inputType-117",
-                                "inputTypeSearch": "MuiInput-inputTypeSearch-118",
-                                "multiline": "MuiInput-multiline-112",
-                                "root": "MuiInput-root-106 MuiInput-underline-110",
-                                "underline": null,
+                                "adornedEnd": "MuiInputBase-adornedEnd-124",
+                                "adornedStart": "MuiInputBase-adornedStart-123",
+                                "disabled": "MuiInputBase-disabled-122 MuiInput-disabled-109",
+                                "error": "MuiInputBase-error-125 MuiInput-error-111",
+                                "focused": "MuiInputBase-focused-121 MuiInput-focused-108",
+                                "formControl": "MuiInputBase-formControl-120 MuiInput-formControl-107",
+                                "fullWidth": "MuiInputBase-fullWidth-128 MuiInput-fullWidth-113",
+                                "input": "MuiInputBase-input-129 MuiInput-input-114",
+                                "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-135",
+                                "inputAdornedStart": "MuiInputBase-inputAdornedStart-134",
+                                "inputMarginDense": "MuiInputBase-inputMarginDense-130 MuiInput-inputMarginDense-115",
+                                "inputMultiline": "MuiInputBase-inputMultiline-131 MuiInput-inputMultiline-116",
+                                "inputType": "MuiInputBase-inputType-132 MuiInput-inputType-117",
+                                "inputTypeSearch": "MuiInputBase-inputTypeSearch-133 MuiInput-inputTypeSearch-118",
+                                "marginDense": "MuiInputBase-marginDense-126",
+                                "multiline": "MuiInputBase-multiline-127 MuiInput-multiline-112",
+                                "root": "MuiInputBase-root-119 MuiInput-root-106 MuiInput-underline-110",
                               }
                             }
                             form="signInForm"
@@ -1182,8 +1211,9 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                             onChange={[Function]}
                             optional="undefined"
                             type="password"
+                            value=""
                           >
-                            <WithFormControlContext(InputBase)
+                            <InputBase
                               classes={
                                 Object {
                                   "adornedEnd": "MuiInputBase-adornedEnd-124",
@@ -1210,91 +1240,59 @@ exports[`<_SignInForm /> render() when logged out, renders succesfully 1`] = `
                               id="password"
                               inputComponent="input"
                               label="Password"
+                              muiFormControl={
+                                Object {
+                                  "adornedStart": false,
+                                  "disabled": false,
+                                  "error": false,
+                                  "filled": false,
+                                  "focused": false,
+                                  "margin": "normal",
+                                  "onBlur": [Function],
+                                  "onEmpty": [Function],
+                                  "onFilled": [Function],
+                                  "onFocus": [Function],
+                                  "required": true,
+                                  "variant": "standard",
+                                }
+                              }
                               multiline={false}
                               name="password"
                               onChange={[Function]}
                               optional="undefined"
                               type="password"
+                              value=""
                             >
-                              <InputBase
-                                classes={
-                                  Object {
-                                    "adornedEnd": "MuiInputBase-adornedEnd-124",
-                                    "adornedStart": "MuiInputBase-adornedStart-123",
-                                    "disabled": "MuiInputBase-disabled-122 MuiInput-disabled-109",
-                                    "error": "MuiInputBase-error-125 MuiInput-error-111",
-                                    "focused": "MuiInputBase-focused-121 MuiInput-focused-108",
-                                    "formControl": "MuiInputBase-formControl-120 MuiInput-formControl-107",
-                                    "fullWidth": "MuiInputBase-fullWidth-128 MuiInput-fullWidth-113",
-                                    "input": "MuiInputBase-input-129 MuiInput-input-114",
-                                    "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-135",
-                                    "inputAdornedStart": "MuiInputBase-inputAdornedStart-134",
-                                    "inputMarginDense": "MuiInputBase-inputMarginDense-130 MuiInput-inputMarginDense-115",
-                                    "inputMultiline": "MuiInputBase-inputMultiline-131 MuiInput-inputMultiline-116",
-                                    "inputType": "MuiInputBase-inputType-132 MuiInput-inputType-117",
-                                    "inputTypeSearch": "MuiInputBase-inputTypeSearch-133 MuiInput-inputTypeSearch-118",
-                                    "marginDense": "MuiInputBase-marginDense-126",
-                                    "multiline": "MuiInputBase-multiline-127 MuiInput-multiline-112",
-                                    "root": "MuiInputBase-root-119 MuiInput-root-106 MuiInput-underline-110",
-                                  }
-                                }
+                              <div
+                                className="MuiInputBase-root-119 MuiInput-root-106 MuiInput-underline-110 MuiInputBase-formControl-120 MuiInput-formControl-107"
                                 form="signInForm"
-                                fullWidth={false}
-                                id="password"
-                                inputComponent="input"
                                 label="Password"
-                                muiFormControl={
-                                  Object {
-                                    "adornedStart": false,
-                                    "disabled": false,
-                                    "error": false,
-                                    "filled": false,
-                                    "focused": false,
-                                    "margin": "normal",
-                                    "onBlur": [Function],
-                                    "onEmpty": [Function],
-                                    "onFilled": [Function],
-                                    "onFocus": [Function],
-                                    "required": true,
-                                    "variant": "standard",
-                                  }
-                                }
-                                multiline={false}
-                                name="password"
-                                onChange={[Function]}
+                                onClick={[Function]}
                                 optional="undefined"
-                                type="password"
                               >
-                                <div
-                                  className="MuiInputBase-root-119 MuiInput-root-106 MuiInput-underline-110 MuiInputBase-formControl-120 MuiInput-formControl-107"
-                                  form="signInForm"
-                                  label="Password"
-                                  onClick={[Function]}
-                                  optional="undefined"
-                                >
-                                  <input
-                                    aria-invalid={false}
-                                    className="MuiInputBase-input-129 MuiInput-input-114 MuiInputBase-inputType-132 MuiInput-inputType-117"
-                                    disabled={false}
-                                    id="password"
-                                    name="password"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                    required={true}
-                                    type="password"
-                                  />
-                                </div>
-                              </InputBase>
-                            </WithFormControlContext(InputBase)>
-                          </WithStyles(WithFormControlContext(InputBase))>
-                        </Input>
-                      </WithStyles(Input)>
-                    </div>
-                  </FormControl>
-                </WithStyles(FormControl)>
-              </CustomInputControl>
-            </Component>
+                                <input
+                                  aria-invalid={false}
+                                  className="MuiInputBase-input-129 MuiInput-input-114 MuiInputBase-inputType-132 MuiInput-inputType-117"
+                                  disabled={false}
+                                  id="password"
+                                  name="password"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  required={true}
+                                  type="password"
+                                  value=""
+                                />
+                              </div>
+                            </InputBase>
+                          </WithFormControlContext(InputBase)>
+                        </WithStyles(WithFormControlContext(InputBase))>
+                      </Input>
+                    </WithStyles(Input)>
+                  </div>
+                </FormControl>
+              </WithStyles(FormControl)>
+            </CustomInputControl>
             <WithStyles(Button)
               className="Component-submit-8"
               color="primary"
@@ -2187,48 +2185,60 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
               type="hidden"
               value="just a dummy because of a chrome bug"
             />
-            <Component
+            <CustomInputControl
               autoFocus={true}
               form="signInForm"
               id="username"
               label="Username"
+              onChange={[MockFunction]}
             >
-              <CustomInputControl
-                autoFocus={true}
-                form="signInForm"
-                id="username"
-                label="Username"
-                onChange={[MockFunction]}
+              <WithStyles(FormControl)
+                fullWidth={true}
+                margin="normal"
+                required={true}
               >
-                <WithStyles(FormControl)
+                <FormControl
+                  classes={
+                    Object {
+                      "fullWidth": "MuiFormControl-fullWidth-250",
+                      "marginDense": "MuiFormControl-marginDense-249",
+                      "marginNormal": "MuiFormControl-marginNormal-248",
+                      "root": "MuiFormControl-root-247",
+                    }
+                  }
+                  component="div"
+                  disabled={false}
+                  error={false}
                   fullWidth={true}
                   margin="normal"
                   required={true}
+                  variant="standard"
                 >
-                  <FormControl
-                    classes={
-                      Object {
-                        "fullWidth": "MuiFormControl-fullWidth-250",
-                        "marginDense": "MuiFormControl-marginDense-249",
-                        "marginNormal": "MuiFormControl-marginNormal-248",
-                        "root": "MuiFormControl-root-247",
-                      }
-                    }
-                    component="div"
-                    disabled={false}
-                    error={false}
-                    fullWidth={true}
-                    margin="normal"
-                    required={true}
-                    variant="standard"
+                  <div
+                    className="MuiFormControl-root-247 MuiFormControl-marginNormal-248 MuiFormControl-fullWidth-250"
                   >
-                    <div
-                      className="MuiFormControl-root-247 MuiFormControl-marginNormal-248 MuiFormControl-fullWidth-250"
+                    <WithStyles(WithFormControlContext(InputLabel))
+                      htmlFor="username"
                     >
-                      <WithStyles(WithFormControlContext(InputLabel))
+                      <WithFormControlContext(InputLabel)
+                        classes={
+                          Object {
+                            "animated": "MuiInputLabel-animated-259",
+                            "disabled": "MuiInputLabel-disabled-253",
+                            "error": "MuiInputLabel-error-254",
+                            "filled": "MuiInputLabel-filled-260",
+                            "focused": "MuiInputLabel-focused-252",
+                            "formControl": "MuiInputLabel-formControl-256",
+                            "marginDense": "MuiInputLabel-marginDense-257",
+                            "outlined": "MuiInputLabel-outlined-261",
+                            "required": "MuiInputLabel-required-255",
+                            "root": "MuiInputLabel-root-251",
+                            "shrink": "MuiInputLabel-shrink-258",
+                          }
+                        }
                         htmlFor="username"
                       >
-                        <WithFormControlContext(InputLabel)
+                        <InputLabel
                           classes={
                             Object {
                               "animated": "MuiInputLabel-animated-259",
@@ -2244,57 +2254,55 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                               "shrink": "MuiInputLabel-shrink-258",
                             }
                           }
+                          disableAnimation={false}
                           htmlFor="username"
+                          muiFormControl={
+                            Object {
+                              "adornedStart": false,
+                              "disabled": false,
+                              "error": false,
+                              "filled": false,
+                              "focused": true,
+                              "margin": "normal",
+                              "onBlur": [Function],
+                              "onEmpty": [Function],
+                              "onFilled": [Function],
+                              "onFocus": [Function],
+                              "required": true,
+                              "variant": "standard",
+                            }
+                          }
                         >
-                          <InputLabel
+                          <WithStyles(WithFormControlContext(FormLabel))
+                            className="MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259 MuiInputLabel-shrink-258"
                             classes={
                               Object {
-                                "animated": "MuiInputLabel-animated-259",
                                 "disabled": "MuiInputLabel-disabled-253",
                                 "error": "MuiInputLabel-error-254",
-                                "filled": "MuiInputLabel-filled-260",
                                 "focused": "MuiInputLabel-focused-252",
-                                "formControl": "MuiInputLabel-formControl-256",
-                                "marginDense": "MuiInputLabel-marginDense-257",
-                                "outlined": "MuiInputLabel-outlined-261",
                                 "required": "MuiInputLabel-required-255",
-                                "root": "MuiInputLabel-root-251",
-                                "shrink": "MuiInputLabel-shrink-258",
                               }
                             }
-                            disableAnimation={false}
+                            data-shrink={true}
                             htmlFor="username"
-                            muiFormControl={
-                              Object {
-                                "adornedStart": false,
-                                "disabled": false,
-                                "error": false,
-                                "filled": false,
-                                "focused": true,
-                                "margin": "normal",
-                                "onBlur": [Function],
-                                "onEmpty": [Function],
-                                "onFilled": [Function],
-                                "onFocus": [Function],
-                                "required": true,
-                                "variant": "standard",
-                              }
-                            }
                           >
-                            <WithStyles(WithFormControlContext(FormLabel))
+                            <WithFormControlContext(FormLabel)
                               className="MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259 MuiInputLabel-shrink-258"
                               classes={
                                 Object {
-                                  "disabled": "MuiInputLabel-disabled-253",
-                                  "error": "MuiInputLabel-error-254",
-                                  "focused": "MuiInputLabel-focused-252",
-                                  "required": "MuiInputLabel-required-255",
+                                  "asterisk": "MuiFormLabel-asterisk-268",
+                                  "disabled": "MuiFormLabel-disabled-264 MuiInputLabel-disabled-253",
+                                  "error": "MuiFormLabel-error-265 MuiInputLabel-error-254",
+                                  "filled": "MuiFormLabel-filled-266",
+                                  "focused": "MuiFormLabel-focused-263 MuiInputLabel-focused-252",
+                                  "required": "MuiFormLabel-required-267 MuiInputLabel-required-255",
+                                  "root": "MuiFormLabel-root-262",
                                 }
                               }
                               data-shrink={true}
                               htmlFor="username"
                             >
-                              <WithFormControlContext(FormLabel)
+                              <FormLabel
                                 className="MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259 MuiInputLabel-shrink-258"
                                 classes={
                                   Object {
@@ -2307,70 +2315,82 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                                     "root": "MuiFormLabel-root-262",
                                   }
                                 }
+                                component="label"
                                 data-shrink={true}
                                 htmlFor="username"
-                              >
-                                <FormLabel
-                                  className="MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259 MuiInputLabel-shrink-258"
-                                  classes={
-                                    Object {
-                                      "asterisk": "MuiFormLabel-asterisk-268",
-                                      "disabled": "MuiFormLabel-disabled-264 MuiInputLabel-disabled-253",
-                                      "error": "MuiFormLabel-error-265 MuiInputLabel-error-254",
-                                      "filled": "MuiFormLabel-filled-266",
-                                      "focused": "MuiFormLabel-focused-263 MuiInputLabel-focused-252",
-                                      "required": "MuiFormLabel-required-267 MuiInputLabel-required-255",
-                                      "root": "MuiFormLabel-root-262",
-                                    }
+                                muiFormControl={
+                                  Object {
+                                    "adornedStart": false,
+                                    "disabled": false,
+                                    "error": false,
+                                    "filled": false,
+                                    "focused": true,
+                                    "margin": "normal",
+                                    "onBlur": [Function],
+                                    "onEmpty": [Function],
+                                    "onFilled": [Function],
+                                    "onFocus": [Function],
+                                    "required": true,
+                                    "variant": "standard",
                                   }
-                                  component="label"
+                                }
+                              >
+                                <label
+                                  className="MuiFormLabel-root-262 MuiFormLabel-focused-263 MuiInputLabel-focused-252 MuiFormLabel-required-267 MuiInputLabel-required-255 MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259 MuiInputLabel-shrink-258"
                                   data-shrink={true}
                                   htmlFor="username"
-                                  muiFormControl={
-                                    Object {
-                                      "adornedStart": false,
-                                      "disabled": false,
-                                      "error": false,
-                                      "filled": false,
-                                      "focused": true,
-                                      "margin": "normal",
-                                      "onBlur": [Function],
-                                      "onEmpty": [Function],
-                                      "onFilled": [Function],
-                                      "onFocus": [Function],
-                                      "required": true,
-                                      "variant": "standard",
-                                    }
-                                  }
                                 >
-                                  <label
-                                    className="MuiFormLabel-root-262 MuiFormLabel-focused-263 MuiInputLabel-focused-252 MuiFormLabel-required-267 MuiInputLabel-required-255 MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259 MuiInputLabel-shrink-258"
-                                    data-shrink={true}
-                                    htmlFor="username"
+                                  Username
+                                  <span
+                                    className="MuiFormLabel-asterisk-268"
                                   >
-                                    Username
-                                    <span
-                                      className="MuiFormLabel-asterisk-268"
-                                    >
-                                       *
-                                    </span>
-                                  </label>
-                                </FormLabel>
-                              </WithFormControlContext(FormLabel)>
-                            </WithStyles(WithFormControlContext(FormLabel))>
-                          </InputLabel>
-                        </WithFormControlContext(InputLabel)>
-                      </WithStyles(WithFormControlContext(InputLabel))>
-                      <WithStyles(Input)
+                                     *
+                                  </span>
+                                </label>
+                              </FormLabel>
+                            </WithFormControlContext(FormLabel)>
+                          </WithStyles(WithFormControlContext(FormLabel))>
+                        </InputLabel>
+                      </WithFormControlContext(InputLabel)>
+                    </WithStyles(WithFormControlContext(InputLabel))>
+                    <WithStyles(Input)
+                      autoFocus={true}
+                      form="signInForm"
+                      id="username"
+                      label="Username"
+                      name="username"
+                      onChange={[Function]}
+                      optional="undefined"
+                      value=""
+                    >
+                      <Input
                         autoFocus={true}
+                        classes={
+                          Object {
+                            "disabled": "MuiInput-disabled-272",
+                            "error": "MuiInput-error-274",
+                            "focused": "MuiInput-focused-271",
+                            "formControl": "MuiInput-formControl-270",
+                            "fullWidth": "MuiInput-fullWidth-276",
+                            "input": "MuiInput-input-277",
+                            "inputMarginDense": "MuiInput-inputMarginDense-278",
+                            "inputMultiline": "MuiInput-inputMultiline-279",
+                            "inputType": "MuiInput-inputType-280",
+                            "inputTypeSearch": "MuiInput-inputTypeSearch-281",
+                            "multiline": "MuiInput-multiline-275",
+                            "root": "MuiInput-root-269",
+                            "underline": "MuiInput-underline-273",
+                          }
+                        }
                         form="signInForm"
                         id="username"
                         label="Username"
                         name="username"
                         onChange={[Function]}
                         optional="undefined"
+                        value=""
                       >
-                        <Input
+                        <WithStyles(WithFormControlContext(InputBase))
                           autoFocus={true}
                           classes={
                             Object {
@@ -2385,34 +2405,43 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                               "inputType": "MuiInput-inputType-280",
                               "inputTypeSearch": "MuiInput-inputTypeSearch-281",
                               "multiline": "MuiInput-multiline-275",
-                              "root": "MuiInput-root-269",
-                              "underline": "MuiInput-underline-273",
+                              "root": "MuiInput-root-269 MuiInput-underline-273",
+                              "underline": null,
                             }
                           }
                           form="signInForm"
+                          fullWidth={false}
                           id="username"
+                          inputComponent="input"
                           label="Username"
+                          multiline={false}
                           name="username"
                           onChange={[Function]}
                           optional="undefined"
+                          type="text"
+                          value=""
                         >
-                          <WithStyles(WithFormControlContext(InputBase))
+                          <WithFormControlContext(InputBase)
                             autoFocus={true}
                             classes={
                               Object {
-                                "disabled": "MuiInput-disabled-272",
-                                "error": "MuiInput-error-274",
-                                "focused": "MuiInput-focused-271",
-                                "formControl": "MuiInput-formControl-270",
-                                "fullWidth": "MuiInput-fullWidth-276",
-                                "input": "MuiInput-input-277",
-                                "inputMarginDense": "MuiInput-inputMarginDense-278",
-                                "inputMultiline": "MuiInput-inputMultiline-279",
-                                "inputType": "MuiInput-inputType-280",
-                                "inputTypeSearch": "MuiInput-inputTypeSearch-281",
-                                "multiline": "MuiInput-multiline-275",
-                                "root": "MuiInput-root-269 MuiInput-underline-273",
-                                "underline": null,
+                                "adornedEnd": "MuiInputBase-adornedEnd-287",
+                                "adornedStart": "MuiInputBase-adornedStart-286",
+                                "disabled": "MuiInputBase-disabled-285 MuiInput-disabled-272",
+                                "error": "MuiInputBase-error-288 MuiInput-error-274",
+                                "focused": "MuiInputBase-focused-284 MuiInput-focused-271",
+                                "formControl": "MuiInputBase-formControl-283 MuiInput-formControl-270",
+                                "fullWidth": "MuiInputBase-fullWidth-291 MuiInput-fullWidth-276",
+                                "input": "MuiInputBase-input-292 MuiInput-input-277",
+                                "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-298",
+                                "inputAdornedStart": "MuiInputBase-inputAdornedStart-297",
+                                "inputMarginDense": "MuiInputBase-inputMarginDense-293 MuiInput-inputMarginDense-278",
+                                "inputMultiline": "MuiInputBase-inputMultiline-294 MuiInput-inputMultiline-279",
+                                "inputType": "MuiInputBase-inputType-295 MuiInput-inputType-280",
+                                "inputTypeSearch": "MuiInputBase-inputTypeSearch-296 MuiInput-inputTypeSearch-281",
+                                "marginDense": "MuiInputBase-marginDense-289",
+                                "multiline": "MuiInputBase-multiline-290 MuiInput-multiline-275",
+                                "root": "MuiInputBase-root-282 MuiInput-root-269 MuiInput-underline-273",
                               }
                             }
                             form="signInForm"
@@ -2425,8 +2454,9 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                             onChange={[Function]}
                             optional="undefined"
                             type="text"
+                            value=""
                           >
-                            <WithFormControlContext(InputBase)
+                            <InputBase
                               autoFocus={true}
                               classes={
                                 Object {
@@ -2454,135 +2484,114 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                               id="username"
                               inputComponent="input"
                               label="Username"
+                              muiFormControl={
+                                Object {
+                                  "adornedStart": false,
+                                  "disabled": false,
+                                  "error": false,
+                                  "filled": false,
+                                  "focused": true,
+                                  "margin": "normal",
+                                  "onBlur": [Function],
+                                  "onEmpty": [Function],
+                                  "onFilled": [Function],
+                                  "onFocus": [Function],
+                                  "required": true,
+                                  "variant": "standard",
+                                }
+                              }
                               multiline={false}
                               name="username"
                               onChange={[Function]}
                               optional="undefined"
                               type="text"
+                              value=""
                             >
-                              <InputBase
-                                autoFocus={true}
-                                classes={
-                                  Object {
-                                    "adornedEnd": "MuiInputBase-adornedEnd-287",
-                                    "adornedStart": "MuiInputBase-adornedStart-286",
-                                    "disabled": "MuiInputBase-disabled-285 MuiInput-disabled-272",
-                                    "error": "MuiInputBase-error-288 MuiInput-error-274",
-                                    "focused": "MuiInputBase-focused-284 MuiInput-focused-271",
-                                    "formControl": "MuiInputBase-formControl-283 MuiInput-formControl-270",
-                                    "fullWidth": "MuiInputBase-fullWidth-291 MuiInput-fullWidth-276",
-                                    "input": "MuiInputBase-input-292 MuiInput-input-277",
-                                    "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-298",
-                                    "inputAdornedStart": "MuiInputBase-inputAdornedStart-297",
-                                    "inputMarginDense": "MuiInputBase-inputMarginDense-293 MuiInput-inputMarginDense-278",
-                                    "inputMultiline": "MuiInputBase-inputMultiline-294 MuiInput-inputMultiline-279",
-                                    "inputType": "MuiInputBase-inputType-295 MuiInput-inputType-280",
-                                    "inputTypeSearch": "MuiInputBase-inputTypeSearch-296 MuiInput-inputTypeSearch-281",
-                                    "marginDense": "MuiInputBase-marginDense-289",
-                                    "multiline": "MuiInputBase-multiline-290 MuiInput-multiline-275",
-                                    "root": "MuiInputBase-root-282 MuiInput-root-269 MuiInput-underline-273",
-                                  }
-                                }
+                              <div
+                                className="MuiInputBase-root-282 MuiInput-root-269 MuiInput-underline-273 MuiInputBase-focused-284 MuiInput-focused-271 MuiInputBase-formControl-283 MuiInput-formControl-270"
                                 form="signInForm"
-                                fullWidth={false}
-                                id="username"
-                                inputComponent="input"
                                 label="Username"
-                                muiFormControl={
-                                  Object {
-                                    "adornedStart": false,
-                                    "disabled": false,
-                                    "error": false,
-                                    "filled": false,
-                                    "focused": true,
-                                    "margin": "normal",
-                                    "onBlur": [Function],
-                                    "onEmpty": [Function],
-                                    "onFilled": [Function],
-                                    "onFocus": [Function],
-                                    "required": true,
-                                    "variant": "standard",
-                                  }
-                                }
-                                multiline={false}
-                                name="username"
-                                onChange={[Function]}
+                                onClick={[Function]}
                                 optional="undefined"
-                                type="text"
                               >
-                                <div
-                                  className="MuiInputBase-root-282 MuiInput-root-269 MuiInput-underline-273 MuiInputBase-focused-284 MuiInput-focused-271 MuiInputBase-formControl-283 MuiInput-formControl-270"
-                                  form="signInForm"
-                                  label="Username"
-                                  onClick={[Function]}
-                                  optional="undefined"
-                                >
-                                  <input
-                                    aria-invalid={false}
-                                    autoFocus={true}
-                                    className="MuiInputBase-input-292 MuiInput-input-277"
-                                    disabled={false}
-                                    id="username"
-                                    name="username"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                    required={true}
-                                    type="text"
-                                  />
-                                </div>
-                              </InputBase>
-                            </WithFormControlContext(InputBase)>
-                          </WithStyles(WithFormControlContext(InputBase))>
-                        </Input>
-                      </WithStyles(Input)>
-                    </div>
-                  </FormControl>
-                </WithStyles(FormControl)>
-              </CustomInputControl>
-            </Component>
-            <Component
+                                <input
+                                  aria-invalid={false}
+                                  autoFocus={true}
+                                  className="MuiInputBase-input-292 MuiInput-input-277"
+                                  disabled={false}
+                                  id="username"
+                                  name="username"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  required={true}
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </InputBase>
+                          </WithFormControlContext(InputBase)>
+                        </WithStyles(WithFormControlContext(InputBase))>
+                      </Input>
+                    </WithStyles(Input)>
+                  </div>
+                </FormControl>
+              </WithStyles(FormControl)>
+            </CustomInputControl>
+            <CustomInputControl
               form="signInForm"
               id="password"
               label="Password"
+              onChange={[MockFunction]}
               type="password"
             >
-              <CustomInputControl
-                form="signInForm"
-                id="password"
-                label="Password"
-                onChange={[MockFunction]}
-                type="password"
+              <WithStyles(FormControl)
+                fullWidth={true}
+                margin="normal"
+                required={true}
               >
-                <WithStyles(FormControl)
+                <FormControl
+                  classes={
+                    Object {
+                      "fullWidth": "MuiFormControl-fullWidth-250",
+                      "marginDense": "MuiFormControl-marginDense-249",
+                      "marginNormal": "MuiFormControl-marginNormal-248",
+                      "root": "MuiFormControl-root-247",
+                    }
+                  }
+                  component="div"
+                  disabled={false}
+                  error={false}
                   fullWidth={true}
                   margin="normal"
                   required={true}
+                  variant="standard"
                 >
-                  <FormControl
-                    classes={
-                      Object {
-                        "fullWidth": "MuiFormControl-fullWidth-250",
-                        "marginDense": "MuiFormControl-marginDense-249",
-                        "marginNormal": "MuiFormControl-marginNormal-248",
-                        "root": "MuiFormControl-root-247",
-                      }
-                    }
-                    component="div"
-                    disabled={false}
-                    error={false}
-                    fullWidth={true}
-                    margin="normal"
-                    required={true}
-                    variant="standard"
+                  <div
+                    className="MuiFormControl-root-247 MuiFormControl-marginNormal-248 MuiFormControl-fullWidth-250"
                   >
-                    <div
-                      className="MuiFormControl-root-247 MuiFormControl-marginNormal-248 MuiFormControl-fullWidth-250"
+                    <WithStyles(WithFormControlContext(InputLabel))
+                      htmlFor="password"
                     >
-                      <WithStyles(WithFormControlContext(InputLabel))
+                      <WithFormControlContext(InputLabel)
+                        classes={
+                          Object {
+                            "animated": "MuiInputLabel-animated-259",
+                            "disabled": "MuiInputLabel-disabled-253",
+                            "error": "MuiInputLabel-error-254",
+                            "filled": "MuiInputLabel-filled-260",
+                            "focused": "MuiInputLabel-focused-252",
+                            "formControl": "MuiInputLabel-formControl-256",
+                            "marginDense": "MuiInputLabel-marginDense-257",
+                            "outlined": "MuiInputLabel-outlined-261",
+                            "required": "MuiInputLabel-required-255",
+                            "root": "MuiInputLabel-root-251",
+                            "shrink": "MuiInputLabel-shrink-258",
+                          }
+                        }
                         htmlFor="password"
                       >
-                        <WithFormControlContext(InputLabel)
+                        <InputLabel
                           classes={
                             Object {
                               "animated": "MuiInputLabel-animated-259",
@@ -2598,57 +2607,55 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                               "shrink": "MuiInputLabel-shrink-258",
                             }
                           }
+                          disableAnimation={false}
                           htmlFor="password"
+                          muiFormControl={
+                            Object {
+                              "adornedStart": false,
+                              "disabled": false,
+                              "error": false,
+                              "filled": false,
+                              "focused": false,
+                              "margin": "normal",
+                              "onBlur": [Function],
+                              "onEmpty": [Function],
+                              "onFilled": [Function],
+                              "onFocus": [Function],
+                              "required": true,
+                              "variant": "standard",
+                            }
+                          }
                         >
-                          <InputLabel
+                          <WithStyles(WithFormControlContext(FormLabel))
+                            className="MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259"
                             classes={
                               Object {
-                                "animated": "MuiInputLabel-animated-259",
                                 "disabled": "MuiInputLabel-disabled-253",
                                 "error": "MuiInputLabel-error-254",
-                                "filled": "MuiInputLabel-filled-260",
                                 "focused": "MuiInputLabel-focused-252",
-                                "formControl": "MuiInputLabel-formControl-256",
-                                "marginDense": "MuiInputLabel-marginDense-257",
-                                "outlined": "MuiInputLabel-outlined-261",
                                 "required": "MuiInputLabel-required-255",
-                                "root": "MuiInputLabel-root-251",
-                                "shrink": "MuiInputLabel-shrink-258",
                               }
                             }
-                            disableAnimation={false}
+                            data-shrink={false}
                             htmlFor="password"
-                            muiFormControl={
-                              Object {
-                                "adornedStart": false,
-                                "disabled": false,
-                                "error": false,
-                                "filled": false,
-                                "focused": false,
-                                "margin": "normal",
-                                "onBlur": [Function],
-                                "onEmpty": [Function],
-                                "onFilled": [Function],
-                                "onFocus": [Function],
-                                "required": true,
-                                "variant": "standard",
-                              }
-                            }
                           >
-                            <WithStyles(WithFormControlContext(FormLabel))
+                            <WithFormControlContext(FormLabel)
                               className="MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259"
                               classes={
                                 Object {
-                                  "disabled": "MuiInputLabel-disabled-253",
-                                  "error": "MuiInputLabel-error-254",
-                                  "focused": "MuiInputLabel-focused-252",
-                                  "required": "MuiInputLabel-required-255",
+                                  "asterisk": "MuiFormLabel-asterisk-268",
+                                  "disabled": "MuiFormLabel-disabled-264 MuiInputLabel-disabled-253",
+                                  "error": "MuiFormLabel-error-265 MuiInputLabel-error-254",
+                                  "filled": "MuiFormLabel-filled-266",
+                                  "focused": "MuiFormLabel-focused-263 MuiInputLabel-focused-252",
+                                  "required": "MuiFormLabel-required-267 MuiInputLabel-required-255",
+                                  "root": "MuiFormLabel-root-262",
                                 }
                               }
                               data-shrink={false}
                               htmlFor="password"
                             >
-                              <WithFormControlContext(FormLabel)
+                              <FormLabel
                                 className="MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259"
                                 classes={
                                   Object {
@@ -2661,61 +2668,72 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                                     "root": "MuiFormLabel-root-262",
                                   }
                                 }
+                                component="label"
                                 data-shrink={false}
                                 htmlFor="password"
-                              >
-                                <FormLabel
-                                  className="MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259"
-                                  classes={
-                                    Object {
-                                      "asterisk": "MuiFormLabel-asterisk-268",
-                                      "disabled": "MuiFormLabel-disabled-264 MuiInputLabel-disabled-253",
-                                      "error": "MuiFormLabel-error-265 MuiInputLabel-error-254",
-                                      "filled": "MuiFormLabel-filled-266",
-                                      "focused": "MuiFormLabel-focused-263 MuiInputLabel-focused-252",
-                                      "required": "MuiFormLabel-required-267 MuiInputLabel-required-255",
-                                      "root": "MuiFormLabel-root-262",
-                                    }
+                                muiFormControl={
+                                  Object {
+                                    "adornedStart": false,
+                                    "disabled": false,
+                                    "error": false,
+                                    "filled": false,
+                                    "focused": false,
+                                    "margin": "normal",
+                                    "onBlur": [Function],
+                                    "onEmpty": [Function],
+                                    "onFilled": [Function],
+                                    "onFocus": [Function],
+                                    "required": true,
+                                    "variant": "standard",
                                   }
-                                  component="label"
+                                }
+                              >
+                                <label
+                                  className="MuiFormLabel-root-262 MuiFormLabel-required-267 MuiInputLabel-required-255 MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259"
                                   data-shrink={false}
                                   htmlFor="password"
-                                  muiFormControl={
-                                    Object {
-                                      "adornedStart": false,
-                                      "disabled": false,
-                                      "error": false,
-                                      "filled": false,
-                                      "focused": false,
-                                      "margin": "normal",
-                                      "onBlur": [Function],
-                                      "onEmpty": [Function],
-                                      "onFilled": [Function],
-                                      "onFocus": [Function],
-                                      "required": true,
-                                      "variant": "standard",
-                                    }
-                                  }
                                 >
-                                  <label
-                                    className="MuiFormLabel-root-262 MuiFormLabel-required-267 MuiInputLabel-required-255 MuiInputLabel-root-251 MuiInputLabel-formControl-256 MuiInputLabel-animated-259"
-                                    data-shrink={false}
-                                    htmlFor="password"
+                                  Password
+                                  <span
+                                    className="MuiFormLabel-asterisk-268"
                                   >
-                                    Password
-                                    <span
-                                      className="MuiFormLabel-asterisk-268"
-                                    >
-                                       *
-                                    </span>
-                                  </label>
-                                </FormLabel>
-                              </WithFormControlContext(FormLabel)>
-                            </WithStyles(WithFormControlContext(FormLabel))>
-                          </InputLabel>
-                        </WithFormControlContext(InputLabel)>
-                      </WithStyles(WithFormControlContext(InputLabel))>
-                      <WithStyles(Input)
+                                     *
+                                  </span>
+                                </label>
+                              </FormLabel>
+                            </WithFormControlContext(FormLabel)>
+                          </WithStyles(WithFormControlContext(FormLabel))>
+                        </InputLabel>
+                      </WithFormControlContext(InputLabel)>
+                    </WithStyles(WithFormControlContext(InputLabel))>
+                    <WithStyles(Input)
+                      form="signInForm"
+                      id="password"
+                      label="Password"
+                      name="password"
+                      onChange={[Function]}
+                      optional="undefined"
+                      type="password"
+                      value=""
+                    >
+                      <Input
+                        classes={
+                          Object {
+                            "disabled": "MuiInput-disabled-272",
+                            "error": "MuiInput-error-274",
+                            "focused": "MuiInput-focused-271",
+                            "formControl": "MuiInput-formControl-270",
+                            "fullWidth": "MuiInput-fullWidth-276",
+                            "input": "MuiInput-input-277",
+                            "inputMarginDense": "MuiInput-inputMarginDense-278",
+                            "inputMultiline": "MuiInput-inputMultiline-279",
+                            "inputType": "MuiInput-inputType-280",
+                            "inputTypeSearch": "MuiInput-inputTypeSearch-281",
+                            "multiline": "MuiInput-multiline-275",
+                            "root": "MuiInput-root-269",
+                            "underline": "MuiInput-underline-273",
+                          }
+                        }
                         form="signInForm"
                         id="password"
                         label="Password"
@@ -2723,8 +2741,9 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                         onChange={[Function]}
                         optional="undefined"
                         type="password"
+                        value=""
                       >
-                        <Input
+                        <WithStyles(WithFormControlContext(InputBase))
                           classes={
                             Object {
                               "disabled": "MuiInput-disabled-272",
@@ -2738,34 +2757,42 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                               "inputType": "MuiInput-inputType-280",
                               "inputTypeSearch": "MuiInput-inputTypeSearch-281",
                               "multiline": "MuiInput-multiline-275",
-                              "root": "MuiInput-root-269",
-                              "underline": "MuiInput-underline-273",
+                              "root": "MuiInput-root-269 MuiInput-underline-273",
+                              "underline": null,
                             }
                           }
                           form="signInForm"
+                          fullWidth={false}
                           id="password"
+                          inputComponent="input"
                           label="Password"
+                          multiline={false}
                           name="password"
                           onChange={[Function]}
                           optional="undefined"
                           type="password"
+                          value=""
                         >
-                          <WithStyles(WithFormControlContext(InputBase))
+                          <WithFormControlContext(InputBase)
                             classes={
                               Object {
-                                "disabled": "MuiInput-disabled-272",
-                                "error": "MuiInput-error-274",
-                                "focused": "MuiInput-focused-271",
-                                "formControl": "MuiInput-formControl-270",
-                                "fullWidth": "MuiInput-fullWidth-276",
-                                "input": "MuiInput-input-277",
-                                "inputMarginDense": "MuiInput-inputMarginDense-278",
-                                "inputMultiline": "MuiInput-inputMultiline-279",
-                                "inputType": "MuiInput-inputType-280",
-                                "inputTypeSearch": "MuiInput-inputTypeSearch-281",
-                                "multiline": "MuiInput-multiline-275",
-                                "root": "MuiInput-root-269 MuiInput-underline-273",
-                                "underline": null,
+                                "adornedEnd": "MuiInputBase-adornedEnd-287",
+                                "adornedStart": "MuiInputBase-adornedStart-286",
+                                "disabled": "MuiInputBase-disabled-285 MuiInput-disabled-272",
+                                "error": "MuiInputBase-error-288 MuiInput-error-274",
+                                "focused": "MuiInputBase-focused-284 MuiInput-focused-271",
+                                "formControl": "MuiInputBase-formControl-283 MuiInput-formControl-270",
+                                "fullWidth": "MuiInputBase-fullWidth-291 MuiInput-fullWidth-276",
+                                "input": "MuiInputBase-input-292 MuiInput-input-277",
+                                "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-298",
+                                "inputAdornedStart": "MuiInputBase-inputAdornedStart-297",
+                                "inputMarginDense": "MuiInputBase-inputMarginDense-293 MuiInput-inputMarginDense-278",
+                                "inputMultiline": "MuiInputBase-inputMultiline-294 MuiInput-inputMultiline-279",
+                                "inputType": "MuiInputBase-inputType-295 MuiInput-inputType-280",
+                                "inputTypeSearch": "MuiInputBase-inputTypeSearch-296 MuiInput-inputTypeSearch-281",
+                                "marginDense": "MuiInputBase-marginDense-289",
+                                "multiline": "MuiInputBase-multiline-290 MuiInput-multiline-275",
+                                "root": "MuiInputBase-root-282 MuiInput-root-269 MuiInput-underline-273",
                               }
                             }
                             form="signInForm"
@@ -2778,8 +2805,9 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                             onChange={[Function]}
                             optional="undefined"
                             type="password"
+                            value=""
                           >
-                            <WithFormControlContext(InputBase)
+                            <InputBase
                               classes={
                                 Object {
                                   "adornedEnd": "MuiInputBase-adornedEnd-287",
@@ -2806,91 +2834,59 @@ exports[`<_SignInForm /> render() when not logged in, shows empty sign in form 1
                               id="password"
                               inputComponent="input"
                               label="Password"
+                              muiFormControl={
+                                Object {
+                                  "adornedStart": false,
+                                  "disabled": false,
+                                  "error": false,
+                                  "filled": false,
+                                  "focused": false,
+                                  "margin": "normal",
+                                  "onBlur": [Function],
+                                  "onEmpty": [Function],
+                                  "onFilled": [Function],
+                                  "onFocus": [Function],
+                                  "required": true,
+                                  "variant": "standard",
+                                }
+                              }
                               multiline={false}
                               name="password"
                               onChange={[Function]}
                               optional="undefined"
                               type="password"
+                              value=""
                             >
-                              <InputBase
-                                classes={
-                                  Object {
-                                    "adornedEnd": "MuiInputBase-adornedEnd-287",
-                                    "adornedStart": "MuiInputBase-adornedStart-286",
-                                    "disabled": "MuiInputBase-disabled-285 MuiInput-disabled-272",
-                                    "error": "MuiInputBase-error-288 MuiInput-error-274",
-                                    "focused": "MuiInputBase-focused-284 MuiInput-focused-271",
-                                    "formControl": "MuiInputBase-formControl-283 MuiInput-formControl-270",
-                                    "fullWidth": "MuiInputBase-fullWidth-291 MuiInput-fullWidth-276",
-                                    "input": "MuiInputBase-input-292 MuiInput-input-277",
-                                    "inputAdornedEnd": "MuiInputBase-inputAdornedEnd-298",
-                                    "inputAdornedStart": "MuiInputBase-inputAdornedStart-297",
-                                    "inputMarginDense": "MuiInputBase-inputMarginDense-293 MuiInput-inputMarginDense-278",
-                                    "inputMultiline": "MuiInputBase-inputMultiline-294 MuiInput-inputMultiline-279",
-                                    "inputType": "MuiInputBase-inputType-295 MuiInput-inputType-280",
-                                    "inputTypeSearch": "MuiInputBase-inputTypeSearch-296 MuiInput-inputTypeSearch-281",
-                                    "marginDense": "MuiInputBase-marginDense-289",
-                                    "multiline": "MuiInputBase-multiline-290 MuiInput-multiline-275",
-                                    "root": "MuiInputBase-root-282 MuiInput-root-269 MuiInput-underline-273",
-                                  }
-                                }
+                              <div
+                                className="MuiInputBase-root-282 MuiInput-root-269 MuiInput-underline-273 MuiInputBase-formControl-283 MuiInput-formControl-270"
                                 form="signInForm"
-                                fullWidth={false}
-                                id="password"
-                                inputComponent="input"
                                 label="Password"
-                                muiFormControl={
-                                  Object {
-                                    "adornedStart": false,
-                                    "disabled": false,
-                                    "error": false,
-                                    "filled": false,
-                                    "focused": false,
-                                    "margin": "normal",
-                                    "onBlur": [Function],
-                                    "onEmpty": [Function],
-                                    "onFilled": [Function],
-                                    "onFocus": [Function],
-                                    "required": true,
-                                    "variant": "standard",
-                                  }
-                                }
-                                multiline={false}
-                                name="password"
-                                onChange={[Function]}
+                                onClick={[Function]}
                                 optional="undefined"
-                                type="password"
                               >
-                                <div
-                                  className="MuiInputBase-root-282 MuiInput-root-269 MuiInput-underline-273 MuiInputBase-formControl-283 MuiInput-formControl-270"
-                                  form="signInForm"
-                                  label="Password"
-                                  onClick={[Function]}
-                                  optional="undefined"
-                                >
-                                  <input
-                                    aria-invalid={false}
-                                    className="MuiInputBase-input-292 MuiInput-input-277 MuiInputBase-inputType-295 MuiInput-inputType-280"
-                                    disabled={false}
-                                    id="password"
-                                    name="password"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                    required={true}
-                                    type="password"
-                                  />
-                                </div>
-                              </InputBase>
-                            </WithFormControlContext(InputBase)>
-                          </WithStyles(WithFormControlContext(InputBase))>
-                        </Input>
-                      </WithStyles(Input)>
-                    </div>
-                  </FormControl>
-                </WithStyles(FormControl)>
-              </CustomInputControl>
-            </Component>
+                                <input
+                                  aria-invalid={false}
+                                  className="MuiInputBase-input-292 MuiInput-input-277 MuiInputBase-inputType-295 MuiInput-inputType-280"
+                                  disabled={false}
+                                  id="password"
+                                  name="password"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  required={true}
+                                  type="password"
+                                  value=""
+                                />
+                              </div>
+                            </InputBase>
+                          </WithFormControlContext(InputBase)>
+                        </WithStyles(WithFormControlContext(InputBase))>
+                      </Input>
+                    </WithStyles(Input)>
+                  </div>
+                </FormControl>
+              </WithStyles(FormControl)>
+            </CustomInputControl>
             <WithStyles(Button)
               className="Component-submit-8"
               color="primary"

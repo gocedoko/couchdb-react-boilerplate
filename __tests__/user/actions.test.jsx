@@ -31,10 +31,6 @@ describe('user actions', () => {
         expect(store.getActions()).toMatchSnapshot()
     })
 
-    test('addUserImg dispatches correct action and payload', () => {
-        store.dispatch(actions.addUserImg('username', 'path', 'file'))
-        expect(store.getActions()).toMatchSnapshot()
-    })
 
     test('signIn dispatches correct action and payload', () => {
         store.dispatch(actions.signIn({}))

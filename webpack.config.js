@@ -5,7 +5,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin")
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin')
 
-module.exports = (env, argv) => {
+module.exports = env => {
   const base_url = env.prod ? '/couchdb-react-boilerplate/' : '/'
 
   return {
@@ -54,9 +54,10 @@ module.exports = (env, argv) => {
       ]),
       new webpack.DefinePlugin({
         WP_CONF_BASE_URL: JSON.stringify(base_url),
-        WP_CONF_REMOTE_DB_URL: env.prod 
-          ? JSON.stringify(config.remote_db_url_prod) 
-          : JSON.stringify(config.remote_db_url_dev)
+        WP_CONF_REMOTE_DB_URL: JSON.stringify(
+          env.prod ? config.remote_db_url_prod : config.remote_db_url_dev),
+        WP_CONF_REMOTE_DB_NAME: JSON.stringify(
+          env.prod ? config.remote_db_name_prod : config.remote_db_name_dev)
       })
     ]
   }

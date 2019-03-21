@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`user actions addUserImg dispatches correct action and payload 1`] = `Array []`;
-
 exports[`user actions getSession dispatches correct action and payload 1`] = `Array []`;
 
 exports[`user actions initProfileForm dispatches correct action and payload 1`] = `

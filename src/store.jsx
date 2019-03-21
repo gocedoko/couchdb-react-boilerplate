@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, thunkMiddleware, createLogger, 
-        _t, createImageURL, utf8ToHex } from "./imports.jsx"
+        _t, createImageURL } from "./imports.jsx"
 
 const initialState = {
     signInForm: {},
@@ -40,7 +40,7 @@ const reducerFunctions = {
         errMsg: '',
         signedInUserData: {
             ...state.signedInUserData,
-            username: payload.username, 
+            username: payload.name, 
             firstName: payload.firstName,
             lastName: payload.lastName,
         },
@@ -92,10 +92,9 @@ const reducerFunctions = {
         ...state, 
         signedIn: true, 
         signedInUserData: {
-            username: payload.username, 
+            username: payload.name, 
             firstName: payload.firstName,
             lastName: payload.lastName,
-            hexUsername: utf8ToHex(payload.username),
             imageData: payload.img && payload._attachments[payload.img]
                 ? createImageURL(payload._attachments[payload.img]) 
                 : "assets/img/userm.png"

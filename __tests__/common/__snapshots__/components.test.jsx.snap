@@ -22,6 +22,7 @@ exports[`<CustomInputControl /> render() component is rendered exactly like the 
   <WithStyles(Input)
     onChange={[Function]}
     optional="undefined"
+    value=""
   />
 </FormControl>
 `;

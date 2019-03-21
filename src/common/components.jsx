@@ -20,7 +20,7 @@ export const CustomInputControl = props => {
                     {...inputProps} 
                     optional={String(props.optional)}
                     name={props.id} 
-                    value={props.value} 
+                    value={props.value || ""} 
                     onChange={e => onChange(props.id, e.target.value)} />
 
             </FormControl>

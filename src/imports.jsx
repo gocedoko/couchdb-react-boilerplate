@@ -22,11 +22,15 @@ import PouchDB from 'pouchdb'
 import PouchDBAuth from 'pouchdb-authentication'
 
     PouchDB.plugin(PouchDBAuth)
-    const remotedb = new PouchDB(WP_CONF_REMOTE_DB_URL, {skip_setup: true})
-    const db = new PouchDB('local_db')
-    db.sync(remotedb, {live: true, retry: true})
+    const remotedb = new PouchDB(
+                        `${WP_CONF_REMOTE_DB_URL}/${WP_CONF_REMOTE_DB_NAME}`, { 
+                            skip_setup: true,
+                            fetch: (url, opts) => {
+                                opts.credentials='include'
+                                return PouchDB.fetch(url, opts)
+                            } })
 
-export { PouchDB, db, remotedb }
+export { PouchDB, remotedb }
 
 
 
@@ -147,6 +151,6 @@ const createImageURL = image =>
 
 // convert a UTF8 string into HEX, to be used for the per-user databases in CouchDB
 const utf8ToHex = str =>
-    utf8.encode(str).split('').map(c => c.charCodeAt(0).toString(16)).join('')
+    str && utf8.encode(str).split('').map(c => c.charCodeAt(0).toString(16)).join('')
 
 export { createImageURL, utf8ToHex }
