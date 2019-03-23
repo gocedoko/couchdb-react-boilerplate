@@ -14,9 +14,10 @@ export const IN_PROGRESS =                  "IN_PROGRESS"
 
 
 // In progress constants
-export const IN_PROGRESS_SIGNUP =           "IN_PROGRESS_SIGNUP"
-export const IN_PROGRESS_SIGNIN =           "IN_PROGRESS_SIGNIN"
-export const IN_PROGRESS_UPDATE_PROFILE =   "IN_PROGRESS_UPDATE_PROFILE"
+export const IN_PROGRESS_SIGNUP =               "IN_PROGRESS_SIGNUP"
+export const IN_PROGRESS_SIGNIN =               "IN_PROGRESS_SIGNIN"
+export const IN_PROGRESS_UPDATE_PROFILE =       "IN_PROGRESS_UPDATE_PROFILE"
+export const IN_PROGRESS_UPDATE_PROFILE_IMG =   "IN_PROGRESS_UPDATE_PROFILE_IMG"
 
 
 // user readable messages corresponding to couchdb errors
@@ -175,11 +176,11 @@ export const updateProfile = props => dispatch => {
 
     remotedb.putUser(props.username, { metadata : userData }).then(() => 
         remotedb.getUser(props.username).then(doc => {
-            dispatch({type: IN_PROGRESS})
             dispatch({
                 type: USER_PROFILE_UPDATED,  
                 payload: doc
             })
+            dispatch({type: IN_PROGRESS})
         })
     
     ).catch(() => 
@@ -198,6 +199,8 @@ export const addUserImg = (username, path, file) => dispatch =>
         return
         
     let profileImgDoc = {_id: 'profileImg'}
+    dispatch({type: IN_PROGRESS, payload: IN_PROGRESS_UPDATE_PROFILE_IMG})
+
     userDB.get('profileImg').then(doc => profileImgDoc = doc).finally(() => {
 
 		const imgName = "profile." + file.name.split(".").reverse()[0]
@@ -212,12 +215,13 @@ export const addUserImg = (username, path, file) => dispatch =>
             userDB.get('profileImg', {
                 attachments: true, 
                 binary: true
-            }).then(doc => 
+            }).then(doc => {
                 dispatch({
                     type: USER_PROFILE_IMAGE_UPDATED,  
                     payload: doc
                 })
-            ))
+                dispatch({type: IN_PROGRESS})
+            }))
 	})
 }
 
