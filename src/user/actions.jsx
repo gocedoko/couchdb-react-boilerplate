@@ -16,11 +16,24 @@ const couchdbErrMessages = {
     conflict: _t("Username already exists"),
     forbidden: _t("You are not allowed to authenticate with these credentials"),
     unauthorized: _t("Invalid user credentials"),
-    authentication_error: _t("Invalid user credentials")
+    authentication_error: _t("Invalid user credentials"),
+    not_found: _t("Problem with user account, please contact admins"),
 }
 
+
+
+// shortcut function to generate corresponding error action
+const toAction = err => ({
+    type: ERROR,  
+    payload: couchdbErrMessages[err.name] || _t("Network error")
+})
+
+
+
+// global pouchDb instances
 let userDB = null
 let userRemoteDB = null
+let userRemoteDBSync = null 
 
 
 
@@ -42,24 +55,34 @@ const createUserDbObjects = username =>
 
 
 // sign in the user to couchdb
-export const signIn = props => async dispatch => {
-    try {
-        remotedb.logIn(props.username, props.password).then(() => {
-            [userDB, userRemoteDB] = createUserDbObjects(props.username)
+export const signIn = props => dispatch =>
+    remotedb.logIn(props.username, props.password).then(() => {
+        [userDB, userRemoteDB] = createUserDbObjects(props.username)
 
-            userRemoteDB.logIn(props.username, props.password).then(() => {
-                userDB.sync(userRemoteDB, { live: true, retry: true })
-                dispatch(retreiveUserData(props.username))
-            })
+        userRemoteDB.logIn(props.username, props.password).then(() => {
+            userRemoteDBSync = userDB.sync(userRemoteDB, { live: true, retry: false})
+            dispatch(retreiveUserData(props.username))
         })
-    }
-    catch(err) { 
-        dispatch({
-            type: ERROR,  
-            payload: couchdbErrMessages[err.name] || _t("Network error")
+        .catch(err => dispatch(toAction(err)))
+    }).catch(err => dispatch(toAction(err)))
+
+
+
+// get session from couchdb in case there is still a valid one
+export const getSession = () => dispatch =>
+    remotedb.getSession().then(response => {
+        const username = response.userCtx.name
+        if (!username)
+            return
+            
+        [userDB, userRemoteDB] = createUserDbObjects(username)
+            
+        userRemoteDB.getSession().then(() => {
+            userRemoteDBSync = userDB.sync(userRemoteDB, { live: true, retry: false })
+            dispatch(retreiveUserData(username))
         })
-    }
-}
+        .catch(err => dispatch(toAction(err)))
+    }).catch(err => dispatch(toAction(err)))
 
 
 
@@ -83,39 +106,8 @@ const retreiveUserData = username => async dispatch => {
                 payload: {...userMetaData, ...profileImg}
             })
         }))
-    .catch(err =>
-        dispatch({
-            type: ERROR,  
-            payload: couchdbErrMessages[err.name] || _t("Network error")
-        }))
+    .catch(err => dispatch(toAction(err)))
 }
-
-
-
-// get session from couchdb in case there is still a valid one
-export const getSession = () => async dispatch => {
-    try {
-        remotedb.getSession().then(response => {
-            const username = response.userCtx.name
-            if (!username)
-                return
-            
-            [userDB, userRemoteDB] = createUserDbObjects(username)
-            
-            userRemoteDB.getSession().then(() => {
-                userDB.sync(userRemoteDB, { live: true, retry: true })
-                dispatch(retreiveUserData(username))
-            })
-        })
-    }
-    catch(err){
-        dispatch({
-            type: ERROR, 
-            payload: _t("Error while retreiving user session")
-        })
-    }
-}
-
 
 
 // initialize edit user profile form with existing data from signed in user 
@@ -208,35 +200,32 @@ export const signUp = props => dispatch => {
     if (props.password !== props.repeatPassword)
         return dispatch({type: ERROR, payload: _t("Passwords do not match")})
 
-    try {
-        remotedb.signUp(props.username, props.password, {
+    remotedb.signUp(props.username, props.password, {
             metadata : {
                 firstName: props.firstName, 
                 lastName: props.lastName
             }
-        }).then(() => dispatch(signIn(props)))    
-    }
-    catch (err) { 
-        dispatch({
-            type: ERROR,  
-            payload: couchdbErrMessages[err.name] || _t("Network error")
-        })
-    }
+    })
+    .then(() => dispatch(signIn(props)))    
+    .catch(err => dispatch(toAction(err))) 
 }
       
 
 // sign out the user from couchdb
-export const signOut = (firstName, lastName) => dispatch => 
-    remotedb.logOut().then(() => 
+export const signOut = (firstName, lastName) => dispatch => {
+    if (userRemoteDBSync) 
+        userRemoteDBSync.cancel()
+
+    remotedb.logOut().then(() => userRemoteDB.logOut().then(() =>
         dispatch({
             type: SIGNED_OUT, 
             payload: {
                 firstName: firstName, 
                 lastName: lastName
-            }}))
-
+            }})))
     .catch(() => 
         dispatch({
             type: ERROR,  
             payload: _t("Couldn't sign out")
         }))
+}

@@ -8,7 +8,7 @@ module.exports = api => api.env('test') ? {
                 useBuiltIns: "usage",
               } 
             ],
-        ],
+        ]
     }
 
     : {}
