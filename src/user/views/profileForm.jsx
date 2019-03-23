@@ -135,7 +135,9 @@ const ProfileForm = connect(
 	state => ({
 		signedIn: state.signedIn,
 		userProfileForm: state.userProfileForm,
-		signedInUserData: state.signedInUserData
+		signedInUserData: state.signedInUserData,
+		inProgress: state.inProgress,
+		language: state.language
 	}),
 	dispatch => ({
 		initProfileForm: () => dispatch(userActions.initProfileForm()),

@@ -72,7 +72,8 @@ const reducerFunctions = {
     // store a general error message in state, to activate snackbar notifications
     ERROR: (state, payload) => ({
         ...state, 
-        errMsg: payload
+        errMsg: payload,
+        inProgress: ""
     }),
 
     

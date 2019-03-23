@@ -95,6 +95,7 @@ const SignInForm = connect(
 	state => ({
 		signedIn: state.signedIn,
 		signInForm: state.signInForm,
+		inProgress: state.inProgress,
 		language: state.language
 	}),
 
