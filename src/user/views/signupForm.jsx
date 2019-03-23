@@ -1,5 +1,5 @@
 import { React, connect, _t, Link, Redirect,
-		withStyles, LockOutlinedIcon, Avatar, Button, Paper, Typography
+		withStyles, LockOutlinedIcon, Avatar, Button, CircularProgress, Paper, Typography
 } from "../../imports.jsx"
 
 import styles from "../style.jsx"
@@ -71,26 +71,35 @@ class _SignUpForm extends React.Component {
 							value={props.signUpForm.email}
 							onChange={props.updateFormField} />
 
-						<Button 
-							id="signupButton"
-							fullWidth 
-							variant="contained" 
-							color="primary" 
-							className={props.classes.submit} 
-							onClick={()=>props.signUp(props.signUpForm)}> 
-								{_t('Submit')}
-						</Button>
+						{
+							props.inProgress === userActions.IN_PROGRESS_SIGNUP_FORM
 
+							? 
+								<CircularProgress/>
+
+							:
+								<Button 
+									id="signupButton"
+									fullWidth 
+									variant="contained" 
+									color="primary" 
+									className={props.classes.submit} 
+									onClick={()=>props.signUp(props.signUpForm)}> 
+										{_t('Submit')}
+								</Button>
+						}
+							
 						<Button 
 							fullWidth 
 							variant="contained" 
 							color="secondary" 
 							className={props.classes.submit}> 
-							
+								
 								<Link to="/" className={props.classes.link}>
 									{_t('Cancel')}
 								</Link>
 						</Button>
+
 					</form>
 				</Paper>
 			</main>
@@ -104,6 +113,7 @@ const SignUpForm = connect(
 	state => ({
 		signedIn: state.signedIn,
 		signUpForm: state.signUpForm,
+		inProgress: state.inProgress,
 		language: state.language
 	}),
 	dispatch => ({

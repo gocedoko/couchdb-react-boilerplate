@@ -1,5 +1,6 @@
 import { PouchDB, remotedb, _t, utf8ToHex } from "../imports.jsx"
 
+// Redux Actions
 export const UPDATE_FORM_FIELD =            "UPDATE_FORM_FIELD"
 export const INIT_PROFILE_FORM =            "INIT_PROFILE_FORM"
 
@@ -9,6 +10,11 @@ export const USER_PROFILE_UPDATED =         "USER_PROFILE_UPDATED"
 export const SIGNED_IN =                    "SIGNED_IN"
 export const SIGNED_OUT =                   "SIGNED_OUT"
 export const ERROR =                        "ERROR"
+export const IN_PROGRESS =                  "IN_PROGRESS"
+
+
+// In progress constants
+export const IN_PROGRESS_SIGNUP_FORM =      "IN_PROGRESS_SIGNUP_FORM"
 
 
 // user readable messages corresponding to couchdb errors
@@ -57,6 +63,8 @@ const createUserDbObjects = username =>
 export const signUp = props => dispatch => {
     if (props.password !== props.repeatPassword)
         return dispatch({type: ERROR, payload: _t("Passwords do not match")})
+
+    dispatch({type: IN_PROGRESS, payload: IN_PROGRESS_SIGNUP_FORM})
 
     remotedb.signUp(props.username, props.password, {
             metadata : {
@@ -110,10 +118,13 @@ const retreiveUserData = username => async dispatch => {
         userDB.get('profileImg', {attachments: true, binary: true})
             .then(profileImgDoc => profileImg = profileImgDoc)
             .catch(async err => err.reason === "missing" && await userDB.put(profileImg))
-            .finally(() => dispatch({
-                                type: SIGNED_IN,  
-                                payload: {...userMetaData, ...profileImg}
-                            })))
+            .finally(() => {
+                dispatch({
+                    type: SIGNED_IN,  
+                    payload: {...userMetaData, ...profileImg}
+                })
+                dispatch({type: IN_PROGRESS})
+            }))
     .catch(err => dispatch(toAction(err)))
 }
 

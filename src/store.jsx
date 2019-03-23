@@ -75,6 +75,12 @@ const reducerFunctions = {
         errMsg: payload
     }),
 
+    
+    IN_PROGRESS: (state, payload) => ({
+        ...state, 
+        inProgress: payload
+    }),
+
     // clear the error message from the state
     CLEAR_ERROR_MESSAGE: state => ({
         ...state, 

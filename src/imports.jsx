@@ -80,6 +80,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import AppBar from '@material-ui/core/AppBar'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import FormControl from '@material-ui/core/FormControl'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -113,8 +114,8 @@ const mui_mount = createMount ()
 
 export { AppBar, Avatar, Button, CssBaseline, FormControl, FormControlLabel, Checkbox, Input, InputLabel, 
         LockOutlinedIcon, Paper, Typography, Drawer, Toolbar, List, Divider, IconButton, Badge, Menu, 
-        MenuItem, MenuIcon, ChevronLeftIcon, NotificationsIcon, ListItem, ListItemIcon, ListItemText, 
-        DashboardIcon, LanguageIcon, PeopleIcon, Tooltip, withStyles, PersonIcon, classNames, 
+        MenuItem, MenuIcon, ChevronLeftIcon, CircularProgress, NotificationsIcon, ListItem, ListItemIcon, 
+        ListItemText, DashboardIcon, LanguageIcon, PeopleIcon, Tooltip, withStyles, PersonIcon, classNames, 
         mui_render, mui_mount }
 
 
