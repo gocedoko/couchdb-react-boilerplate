@@ -27,18 +27,17 @@ class _ProfileForm extends React.Component {
 						{
 							props.inProgress === userActions.IN_PROGRESS_UPDATE_PROFILE_IMG
 
-									? 
-										<LinearProgress/>
-
-									:
-										<UserImageControl 
-											id="imagePath" 
-											classes={props.classes}
-											src={props.userProfileForm.imageData} 
-											username={props.userProfileForm.username
-														|| props.signedInUserData.username}
-											onChange={props.updateProfileImg}
-											/>
+							? 
+								<LinearProgress/>
+							:
+								<UserImageControl 
+									id="imagePath" 
+									classes={props.classes}
+									src={props.userProfileForm.imageData} 
+									username={props.userProfileForm.username
+												|| props.signedInUserData.username}
+									onChange={props.updateProfileImg}
+								/>
 						}
 	
 						<Typography 
