@@ -25,7 +25,7 @@ class _ProfileForm extends React.Component {
 					<Paper className={props.classes.paper}>
 				
 						{
-							props.inProgress === userActions.IN_PROGRESS_UPDATE_PROFILE
+							props.inProgress === userActions.IN_PROGRESS_UPDATE_PROFILE_IMG
 
 									? 
 										<LinearProgress/>
