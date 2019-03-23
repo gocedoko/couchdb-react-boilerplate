@@ -93,15 +93,20 @@ class _ProfileForm extends React.Component {
 										<LinearProgress/>
 
 									:
-										<Button 
-											id="submitButton"
-											fullWidth 
-											variant="contained" 
-											color="primary" 
-											className={props.classes.submit} 
-											onClick={()=>props.updateProfile(props.userProfileForm)}> 
-												{_t('Submit')}
-										</Button>
+										<Link 
+											to="/"
+											className={props.classes.link}>
+												<Button 
+													id="submitButton"
+													fullWidth 
+													variant="contained" 
+													color="primary" 
+													className={props.classes.submit} 
+													onClick={()=>
+														props.updateProfile(props.userProfileForm)}> 
+															{_t('Submit')}
+												</Button>
+										</Link>
 								}
 
 								<Link 
