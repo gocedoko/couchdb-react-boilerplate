@@ -1,13 +1,12 @@
 import { React, ReactDOM, connect, Provider, Router, Switch, Route, createBrowserHistory,
-    withStyles, classNames, CssBaseline, SnackbarProvider, withSnackbar
+        createStore, applyMiddleware, thunkMiddleware, createLogger,
+        withStyles, classNames, CssBaseline, SnackbarProvider, withSnackbar
 } from "./imports.jsx"
 
 
-import store from "./store.jsx"
 import styles from "./common/style.jsx"
-import * as mainActions from "./common/actions.jsx"
-import * as userActions from "./user/actions.jsx"
-
+import { commonReducers, initialState } from "./common/reducers.jsx"
+import userReducers from "./user/reducers.jsx"
 
 import { MainAppBar } from "./common/views/mainAppBar.jsx"
 import { Home } from "./common/views/home.jsx"
@@ -17,7 +16,14 @@ import { SignUpForm } from "./user/views/signupForm.jsx"
 import { ProfileForm } from "./user/views/profileForm.jsx"
 
 
-class Index extends React.Component {
+import * as mainActions from "./common/actions.jsx"
+import * as userActions from "./user/actions.jsx"
+
+
+
+// Definitions of the main class
+
+class Main extends React.Component {
     componentDidMount(){
         this.props.getSession()
     }
@@ -72,8 +78,9 @@ class Index extends React.Component {
 }
 
 
+// Connect the main class with state and dispatch
 
-const StyledIndex = connect(
+const StyledMain = connect(
     state => ({
         signedIn: state.signedIn,
         shownMenu: state.shownMenu,
@@ -86,14 +93,37 @@ const StyledIndex = connect(
         clearErrorMessage: () => dispatch(mainActions.clearErrorMessage()),
         clearInfoMessage: () => dispatch(mainActions.clearInfoMessage())
     })
-)(withSnackbar(withStyles(styles)(Index)))
+)(withSnackbar(withStyles(styles)(Main)))
 
+
+
+
+// Initialize the store
+
+const reducerFunctions = { 
+    ...commonReducers, 
+    ...userReducers 
+}
+
+const store = createStore (
+    (state = initialState, action) => 
+        (reducerFunctions[action.type] || (()=>initialState)) (state, action.payload),
+    
+    applyMiddleware(
+        thunkMiddleware,
+        createLogger()
+    )
+)
+
+
+
+// Render the main class into DOM
 
 ReactDOM.render(
     <Provider store={store}>
         <Router history={createBrowserHistory({basename: WP_CONF_BASE_URL})} >
             <SnackbarProvider maxSnack={3}>
-                <StyledIndex/>
+                <StyledMain/>
             </SnackbarProvider>
         </Router>
     </Provider>, document.getElementById("index")

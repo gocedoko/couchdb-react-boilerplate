@@ -1,23 +1,9 @@
-import { createStore, applyMiddleware, thunkMiddleware, createLogger, 
-        _t, createImageURL } from "./imports.jsx"
+import { _t, createImageURL } from "../imports.jsx"
 
-const initialState = {
-    signInForm: {},
-    signUpForm: {},
-    userProfileForm: {}
-}
+import { initialState } from "../common/reducers.jsx"
 
-const reducerFunctions = {
 
-    '@@INIT' : initialState,
-
-    '@@redux/INIT' : initialState,
-
-    // set the 'showMenu' state
-    SHOW_MENU: (state, payload) => ({
-        ...state, 
-        shownMenu: payload
-    }),
+export default {
 
     // fill in existing user data; called when showing the user profile form
     INIT_PROFILE_FORM: (state) => ({
@@ -68,31 +54,6 @@ const reducerFunctions = {
             infoMsg: `${_t('Successfully updated user image for')} ${state.signedInUserData.firstName} ${state.signedInUserData.lastName}`
         }
     },
-
-    // store a general error message in state, to activate snackbar notifications
-    ERROR: (state, payload) => ({
-        ...state, 
-        errMsg: payload,
-        inProgress: ""
-    }),
-
-    
-    IN_PROGRESS: (state, payload) => ({
-        ...state, 
-        inProgress: payload
-    }),
-
-    // clear the error message from the state
-    CLEAR_ERROR_MESSAGE: state => ({
-        ...state, 
-        errMsg: ""
-    }),
-
-    // clear info message from the state
-    CLEAR_INFO_MESSAGE: state => ({
-        ...state, 
-        infoMsg: ""
-    }),
        
     // update user data in state after successful sign in
     SIGNED_IN: (state, payload) => ({
@@ -114,22 +75,4 @@ const reducerFunctions = {
         ...initialState, 
         infoMsg: `${payload.firstName} ${payload.lastName} ${_t('is signed out')}!`
     }),
-
-    // update language in state after a successfful language change
-    LANGUAGE_CHANGED: (state, payload) => ({
-        ...state,
-        language: payload.shortName,
-        infoMsg: `${_t('Language changed to')} ${payload.name}!`
-    })
 }
-
-
-export default createStore (
-    (state = initialState, action) => 
-        (reducerFunctions[action.type] || (()=>initialState)) (state, action.payload),
-    
-    applyMiddleware(
-        thunkMiddleware,
-        createLogger()
-    )
-)
