@@ -216,13 +216,14 @@ export const signOut = (firstName, lastName) => dispatch => {
     if (userRemoteDBSync) 
         userRemoteDBSync.cancel()
 
-    remotedb.logOut().then(() => userRemoteDB.logOut().then(() =>
-        dispatch({
-            type: SIGNED_OUT, 
-            payload: {
-                firstName: firstName, 
-                lastName: lastName
-            }})))
+    remotedb && remotedb.logOut().then(() => 
+        userRemoteDB && userRemoteDB.logOut().then(() =>
+            dispatch({
+                type: SIGNED_OUT, 
+                payload: {
+                    firstName: firstName, 
+                    lastName: lastName
+                }})))
     .catch(() => 
         dispatch({
             type: ERROR,  
