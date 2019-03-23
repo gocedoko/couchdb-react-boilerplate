@@ -14,7 +14,9 @@ export const IN_PROGRESS =                  "IN_PROGRESS"
 
 
 // In progress constants
-export const IN_PROGRESS_SIGNUP_FORM =      "IN_PROGRESS_SIGNUP_FORM"
+export const IN_PROGRESS_SIGNUP =           "IN_PROGRESS_SIGNUP"
+export const IN_PROGRESS_SIGNIN =           "IN_PROGRESS_SIGNIN"
+export const IN_PROGRESS_UPDATE_PROFILE =   "IN_PROGRESS_UPDATE_PROFILE"
 
 
 // user readable messages corresponding to couchdb errors
@@ -64,7 +66,7 @@ export const signUp = props => dispatch => {
     if (props.password !== props.repeatPassword)
         return dispatch({type: ERROR, payload: _t("Passwords do not match")})
 
-    dispatch({type: IN_PROGRESS, payload: IN_PROGRESS_SIGNUP_FORM})
+    dispatch({type: IN_PROGRESS, payload: IN_PROGRESS_SIGNIN})
 
     remotedb.signUp(props.username, props.password, {
             metadata : {
@@ -82,6 +84,8 @@ export const signUp = props => dispatch => {
 export const signIn = props => dispatch =>
     remotedb.logIn(props.username, props.password).then(() => {
         [userDB, userRemoteDB] = createUserDbObjects(props.username)
+
+        dispatch({type: IN_PROGRESS, payload: IN_PROGRESS_SIGNIN})
 
         userRemoteDB.logIn(props.username, props.password).then(() => {
             userRemoteDBSync = userDB.sync(userRemoteDB, { live: true, retry: false})
@@ -161,6 +165,8 @@ export const updateProfile = props => dispatch => {
         userData.password = props.password
     }
 
+    dispatch({type: IN_PROGRESS, payload: IN_PROGRESS_UPDATE_PROFILE})
+
     if (props.firstName) 
         userData.firstName = props.firstName
 
@@ -168,11 +174,13 @@ export const updateProfile = props => dispatch => {
         userData.lastName = props.lastName
 
     remotedb.putUser(props.username, { metadata : userData }).then(() => 
-        remotedb.getUser(props.username).then(doc => 
+        remotedb.getUser(props.username).then(doc => {
+            dispatch({type: IN_PROGRESS})
             dispatch({
                 type: USER_PROFILE_UPDATED,  
                 payload: doc
-            }))
+            })
+        })
     
     ).catch(() => 
         dispatch({

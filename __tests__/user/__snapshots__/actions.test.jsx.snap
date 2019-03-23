@@ -17,7 +17,7 @@ exports[`user actions signOut dispatches correct action and payload 1`] = `Array
 exports[`user actions signUp dispatches correct action and payload 1`] = `
 Array [
   Object {
-    "payload": "IN_PROGRESS_SIGNUP_FORM",
+    "payload": "IN_PROGRESS_SIGNIN",
     "type": "IN_PROGRESS",
   },
 ]
@@ -36,4 +36,11 @@ Array [
 ]
 `;
 
-exports[`user actions updateProfile dispatches correct action and payload 1`] = `Array []`;
+exports[`user actions updateProfile dispatches correct action and payload 1`] = `
+Array [
+  Object {
+    "payload": "IN_PROGRESS_UPDATE_PROFILE",
+    "type": "IN_PROGRESS",
+  },
+]
+`;

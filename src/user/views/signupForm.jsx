@@ -72,7 +72,7 @@ class _SignUpForm extends React.Component {
 							onChange={props.updateFormField} />
 
 						{
-							props.inProgress === userActions.IN_PROGRESS_SIGNUP_FORM
+							props.inProgress === userActions.IN_PROGRESS_SIGNUP
 
 							? 
 								<CircularProgress/>

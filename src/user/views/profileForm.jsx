@@ -1,5 +1,5 @@
 import { React, connect, _t, Redirect, Link,
-		withStyles, Paper, Typography, Button} from "../../imports.jsx"
+		withStyles, Paper, Typography, Button, CircularProgress} from "../../imports.jsx"
 
 import { CustomInputControl, UserImageControl } from "../../common/components.jsx"
 
@@ -78,15 +78,23 @@ class _ProfileForm extends React.Component {
 									optional={!props.userProfileForm.password}
 									/>
 
-								<Button 
-									id="submitButton"
-									fullWidth 
-									variant="contained" 
-									color="primary" 
-									className={props.classes.submit} 
-									onClick={()=>props.updateProfile(props.userProfileForm)}> 
-										{_t('Submit')}
-								</Button>
+								{
+									props.inProgress === userActions.IN_PROGRESS_UPDATE_PROFILE
+
+									? 
+										<CircularProgress/>
+
+									:
+										<Button 
+											id="submitButton"
+											fullWidth 
+											variant="contained" 
+											color="primary" 
+											className={props.classes.submit} 
+											onClick={()=>props.updateProfile(props.userProfileForm)}> 
+												{_t('Submit')}
+										</Button>
+								}
 
 								<Link 
 									to="/"

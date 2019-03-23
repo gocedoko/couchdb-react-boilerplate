@@ -1,5 +1,5 @@
 import { React, connect, _t, Redirect, Link,
-		withStyles, Avatar, Button, LockOutlinedIcon, Paper, Typography
+		withStyles, Avatar, Button, CircularProgress, LockOutlinedIcon, Paper, Typography
 } from "../../imports.jsx"
 
 import styles from "../style.jsx"
@@ -51,15 +51,23 @@ class _SignInForm extends React.Component {
 							type="password" 
 							form={"signInForm"}/>
 
-						<Button 
-							id="signinButton"
-							fullWidth 
-							variant="contained" 
-							color="primary"
-							className={props.classes.submit} 
-							onClick={()=>props.signIn(props.signInForm)}> 
-								{_t('Sign in')}
-						</Button>
+						{
+							props.inProgress === userActions.IN_PROGRESS_SIGNIN
+
+							? 
+								<CircularProgress/>
+
+							:
+								<Button 
+									id="signinButton"
+									fullWidth 
+									variant="contained" 
+									color="primary"
+									className={props.classes.submit} 
+									onClick={()=>props.signIn(props.signInForm)}> 
+										{_t('Sign in')}
+								</Button>
+						}
 
 						<Link 
 							to="/signup"
