@@ -53,6 +53,22 @@ const createUserDbObjects = username =>
 }
 
 
+// sign up the user to couchdb
+export const signUp = props => dispatch => {
+    if (props.password !== props.repeatPassword)
+        return dispatch({type: ERROR, payload: _t("Passwords do not match")})
+
+    remotedb.signUp(props.username, props.password, {
+            metadata : {
+                firstName: props.firstName, 
+                lastName: props.lastName
+            }
+    })
+    .then(() => dispatch(signIn(props)))    
+    .catch(err => dispatch(toAction(err))) 
+}
+
+
 
 // sign in the user to couchdb
 export const signIn = props => dispatch =>
@@ -91,21 +107,13 @@ const retreiveUserData = username => async dispatch => {
     let profileImg = {_id: "profileImg"}
 
     remotedb.getUser(username).then(userMetaData => 
-        userDB.get('profileImg', {attachments: true, binary: true}, async (err, profileImgDoc) => {
-            if (err){
-                if (err.reason === "missing")
-                    await userDB.put(profileImg)
-                else 
-                    throw err
-            }
-            else     
-                profileImg = profileImgDoc
-
-            dispatch({
-                type: SIGNED_IN,  
-                payload: {...userMetaData, ...profileImg}
-            })
-        }))
+        userDB.get('profileImg', {attachments: true, binary: true})
+            .then(profileImgDoc => profileImg = profileImgDoc)
+            .catch(async err => err.reason === "missing" && await userDB.put(profileImg))
+            .finally(() => dispatch({
+                                type: SIGNED_IN,  
+                                payload: {...userMetaData, ...profileImg}
+                            })))
     .catch(err => dispatch(toAction(err)))
 }
 
@@ -194,21 +202,6 @@ export const addUserImg = (username, path, file) => dispatch =>
 	})
 }
 
-
-// sign up the user to couchdb
-export const signUp = props => dispatch => {
-    if (props.password !== props.repeatPassword)
-        return dispatch({type: ERROR, payload: _t("Passwords do not match")})
-
-    remotedb.signUp(props.username, props.password, {
-            metadata : {
-                firstName: props.firstName, 
-                lastName: props.lastName
-            }
-    })
-    .then(() => dispatch(signIn(props)))    
-    .catch(err => dispatch(toAction(err))) 
-}
       
 
 // sign out the user from couchdb
