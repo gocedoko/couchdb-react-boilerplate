@@ -1,5 +1,5 @@
 import { React, connect, _t, Redirect, Link,
-		withStyles, Paper, Typography, Button, CircularProgress} from "../../imports.jsx"
+		withStyles, Paper, Typography, Button, LinearProgress} from "../../imports.jsx"
 
 import { CustomInputControl, UserImageControl } from "../../common/components.jsx"
 
@@ -24,14 +24,22 @@ class _ProfileForm extends React.Component {
 				<main className={props.classes.main}>
 					<Paper className={props.classes.paper}>
 				
-						<UserImageControl 
-							id="imagePath" 
-							classes={props.classes}
-							src={props.userProfileForm.imageData} 
-							username={props.userProfileForm.username
-												|| props.signedInUserData.username}
-							onChange={props.updateProfileImg}
-							/>
+						{
+							props.inProgress === userActions.IN_PROGRESS_UPDATE_PROFILE
+
+									? 
+										<LinearProgress/>
+
+									:
+										<UserImageControl 
+											id="imagePath" 
+											classes={props.classes}
+											src={props.userProfileForm.imageData} 
+											username={props.userProfileForm.username
+														|| props.signedInUserData.username}
+											onChange={props.updateProfileImg}
+											/>
+						}
 	
 						<Typography 
 							component="h1" 
@@ -82,7 +90,7 @@ class _ProfileForm extends React.Component {
 									props.inProgress === userActions.IN_PROGRESS_UPDATE_PROFILE
 
 									? 
-										<CircularProgress/>
+										<LinearProgress/>
 
 									:
 										<Button 

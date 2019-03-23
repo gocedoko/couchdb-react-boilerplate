@@ -1,5 +1,5 @@
 import { React, connect, _t, Link, Redirect,
-		withStyles, LockOutlinedIcon, Avatar, Button, CircularProgress, Paper, Typography
+		withStyles, LockOutlinedIcon, Avatar, Button, LinearProgress, Paper, Typography
 } from "../../imports.jsx"
 
 import styles from "../style.jsx"
@@ -75,7 +75,7 @@ class _SignUpForm extends React.Component {
 							props.inProgress === userActions.IN_PROGRESS_SIGNUP
 
 							? 
-								<CircularProgress/>
+								<LinearProgress/>
 
 							:
 								<Button 
