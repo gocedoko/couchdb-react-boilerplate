@@ -39,8 +39,7 @@ export { PouchDB, remotedb }
 import i18n from 'i18next'
 import LngDetector from 'i18next-browser-languagedetector'
 import en from "../i18n/en/translation.json"
-import de from "../i18n/de/translation.json"
-import zh from "../i18n/zh/translation.json"
+import all from "../i18n/all/translation.json"
 
     i18n.use(LngDetector).init({
         debug: false,
@@ -50,14 +49,13 @@ import zh from "../i18n/zh/translation.json"
             order: ['querystring', 'cookie', 'localStorage', 'navigator', 
                     'htmlTag', 'path', 'subdomain'],
             cookieMinutes: 10,
-            cookieDomain: 'umpDomain',
+            cookieDomain: 'couchdbreactbp',
         },
         nsSeparator: false,
         keySeparator: false,
         resources: {
             en: { translation: en },
-            de: { translation: de },
-            zh: { translation: zh }
+            ...all
         }
     })
 
