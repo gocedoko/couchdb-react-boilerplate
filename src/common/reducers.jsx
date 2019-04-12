@@ -46,7 +46,7 @@ export const commonReducers = {
     // update language in state after a successfful language change
     LANGUAGE_CHANGED: (state, payload) => ({
         ...state,
-        language: payload.shortName,
-        infoMsg: `${_t('Language changed to')} ${payload.name}!`
+        language: payload.value,
+        infoMsg: `${_t('Language changed to')} ${payload.label}!`
     })
 }

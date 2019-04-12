@@ -73,6 +73,7 @@ export default {
     // reset state after successful sign out
     SIGNED_OUT: (state, payload) => ({
         ...initialState, 
+        language: state.language,
         infoMsg: `${payload.firstName} ${payload.lastName} ${_t('is signed out')}!`
     }),
 }

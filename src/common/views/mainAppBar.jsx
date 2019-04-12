@@ -34,10 +34,10 @@ class _MainAppBar extends React.Component {
                                 {lngs.map(l =>
                                     <MenuItem 
                                         className="languageMenuItem"
-                                        key={l.shortName} 
-                                        selected={i18n.language == l.shortName} 
+                                        key={l.label} 
+                                        selected={i18n.language == l.value} 
                                         onClick={() => props.changeLanguage(l)}>
-                                            {l.name}
+                                            {l.label}
                                     </MenuItem>
                                 )}
                         </Menu>

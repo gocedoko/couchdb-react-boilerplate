@@ -26,6 +26,7 @@ import * as userActions from "./user/actions.jsx"
 class Main extends React.Component {
     componentDidMount(){
         this.props.getSession()
+        this.props.changeLanguage()
     }
 
     componentDidUpdate(){
@@ -90,6 +91,7 @@ const StyledMain = connect(
     }),
     dispatch => ({
         getSession: () => dispatch(userActions.getSession()),
+        changeLanguage: () => dispatch(mainActions.changeLanguage()),
         clearErrorMessage: () => dispatch(mainActions.clearErrorMessage()),
         clearInfoMessage: () => dispatch(mainActions.clearInfoMessage())
     })

@@ -22,15 +22,8 @@ import PouchDB from 'pouchdb'
 import PouchDBAuth from 'pouchdb-authentication'
 
     PouchDB.plugin(PouchDBAuth)
-    const remotedb = new PouchDB(
-                        `${WP_CONF_REMOTE_DB_URL}/${WP_CONF_REMOTE_DB_NAME}`, { 
-                            skip_setup: true,
-                            fetch: (url, opts) => {
-                                opts.credentials='include'
-                                return PouchDB.fetch(url, opts)
-                            } })
 
-export { PouchDB, remotedb }
+export { PouchDB }
 
 
 
@@ -60,9 +53,18 @@ import all from "../i18n/all/translation.json"
     })
 
     const lngs = [
-        {shortName: 'en', name: 'English'}, 
-        {shortName: 'de', name: 'Deutsch'}, 
-        {shortName: 'zh', name: '中文'}]
+        {label: 'English', value: 'en', engName: 'English'}, 
+        {label: 'Deutsch', value: 'de', engName: 'German'}, 
+        {label: 'Italiano', value: 'it', engName: 'Italian'},
+        {label: 'Español', value: 'es', engName: 'Spanish'},
+        {label: 'Português', value: 'pt', engName: 'Portuguese'},        
+        {label: 'Français', value: 'fr', engName: 'French'},
+        {label: 'العربية', value: 'ar', engName: 'Arabic'},
+        {label: '中文', value: 'zh', engName: 'Chinese'},
+        {label: '日本語', value: 'ja', engName: 'Japanese'},
+        {label: '한국어', value: 'ko', engName: 'Korean',},
+        {label: 'हिन्दी', value: 'hi', engName: 'Hindi'},
+    ]
 
     const _t = t => i18n.t(t)
 

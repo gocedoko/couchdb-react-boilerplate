@@ -1,4 +1,5 @@
-import { PouchDB, remotedb, _t, utf8ToHex } from "../imports.jsx"
+import { _t, utf8ToHex } from "../imports.jsx"
+import db from "../db.jsx"
 
 // Redux Actions
 export const UPDATE_FORM_FIELD =            "UPDATE_FORM_FIELD"
@@ -38,30 +39,6 @@ const toAction = err => ({
 })
 
 
-
-// global pouchDb instances
-let userDB = null
-let userRemoteDB = null
-let userRemoteDBSync = null 
-
-
-
-//create user db objects
-const createUserDbObjects = username =>
-{
-    const userDbName = `userdb-${utf8ToHex(username)}`
-    return [
-        new PouchDB(userDbName), 
-        new PouchDB(`${WP_CONF_REMOTE_DB_URL}/${userDbName}`, { 
-            skip_setup: true,
-            fetch: (url, opts) => {
-                opts.credentials='include'
-                return PouchDB.fetch(url, opts)
-            }})
-    ]
-}
-
-
 // sign up the user to couchdb
 export const signUp = props => dispatch => {
     if (props.password !== props.repeatPassword)
@@ -69,7 +46,7 @@ export const signUp = props => dispatch => {
 
     dispatch({type: IN_PROGRESS, payload: IN_PROGRESS_SIGNIN})
 
-    remotedb.signUp(props.username, props.password, {
+    db.remote.signUp(props.username, props.password, {
             metadata : {
                 firstName: props.firstName, 
                 lastName: props.lastName
@@ -83,32 +60,42 @@ export const signUp = props => dispatch => {
 
 // sign in the user to couchdb
 export const signIn = props => dispatch =>
-    remotedb.logIn(props.username, props.password).then(() => {
-        [userDB, userRemoteDB] = createUserDbObjects(props.username)
+    db.remote.logIn(props.username, props.password).then(() => {
 
         dispatch({type: IN_PROGRESS, payload: IN_PROGRESS_SIGNIN})
-
-        userRemoteDB.logIn(props.username, props.password).then(() => {
-            userRemoteDBSync = userDB.sync(userRemoteDB, { live: true, retry: false})
-            dispatch(retreiveUserData(props.username))
+        
+        const userdbName = `userdb-${utf8ToHex(props.username)}`
+        
+        db.initUserDb(userdbName)
+        db.user.remote.logIn(props.username, props.password).then(() => {
+            db.syncUserDb()
+            db.initDb("public")
+            db.public.remote.logIn(props.username, props.password).then(() => {
+                db.syncDb("public")
+                dispatch(retreiveUserData(props.username))
+            })
         })
-        .catch(err => dispatch(toAction(err)))
     }).catch(err => dispatch(toAction(err)))
 
 
 
 // get session from couchdb in case there is still a valid one
 export const getSession = () => dispatch =>
-    remotedb.getSession().then(response => {
+    db.remote.getSession().then(response => {
         const username = response.userCtx.name
         if (!username)
             return
-            
-        [userDB, userRemoteDB] = createUserDbObjects(username)
-            
-        userRemoteDB.getSession().then(() => {
-            userRemoteDBSync = userDB.sync(userRemoteDB, { live: true, retry: false })
-            dispatch(retreiveUserData(username))
+
+        const userdbName = `userdb-${utf8ToHex(username)}`
+        
+        db.initUserDb(userdbName)    
+        db.user.remote.getSession().then(() => {
+            db.syncUserDb()
+            db.initDb("public")
+            db.public.remote.getSession(username).then(() => {
+                db.syncDb("public")
+                dispatch(retreiveUserData(username))
+            })
         })
         .catch(err => dispatch(toAction(err)))
     }).catch(err => dispatch(toAction(err)))
@@ -119,10 +106,10 @@ export const getSession = () => dispatch =>
 const retreiveUserData = username => async dispatch => {
     let profileImg = {_id: "profileImg"}
 
-    remotedb.getUser(username).then(userMetaData => 
-        userDB.get('profileImg', {attachments: true, binary: true})
+    db.remote.getUser(username).then(userMetaData => 
+        db.user.local.get('profileImg', {attachments: true, binary: true})
             .then(profileImgDoc => profileImg = profileImgDoc)
-            .catch(async err => err.reason === "missing" && await userDB.put(profileImg))
+            .catch(async err => err.reason === "missing" && await db.user.local.put(profileImg))
             .finally(() => {
                 dispatch({
                     type: SIGNED_IN,  
@@ -174,8 +161,8 @@ export const updateProfile = props => dispatch => {
     if (props.lastName) 
         userData.lastName = props.lastName
 
-    remotedb.putUser(props.username, { metadata : userData }).then(() => 
-        remotedb.getUser(props.username).then(doc => {
+    db.remote.putUser(props.username, { metadata : userData }).then(() => 
+        db.remote.getUser(props.username).then(doc => {
             dispatch({
                 type: USER_PROFILE_UPDATED,  
                 payload: doc
@@ -201,10 +188,10 @@ export const addUserImg = (username, path, file) => dispatch =>
     let profileImgDoc = {_id: 'profileImg'}
     dispatch({type: IN_PROGRESS, payload: IN_PROGRESS_UPDATE_PROFILE_IMG})
 
-    userDB.get('profileImg').then(doc => profileImgDoc = doc).finally(() => {
+    db.user.local.get('profileImg').then(doc => profileImgDoc = doc).finally(() => {
 
 		const imgName = "profile." + file.name.split(".").reverse()[0]
-		userDB.put({
+		db.user.local.put({
             ...profileImgDoc,
 			img: imgName,
             _attachments: { 
@@ -212,7 +199,7 @@ export const addUserImg = (username, path, file) => dispatch =>
             }
 		})
         .then(() => 
-            userDB.get('profileImg', {
+            db.user.local.get('profileImg', {
                 attachments: true, 
                 binary: true
             }).then(doc => {
@@ -229,11 +216,10 @@ export const addUserImg = (username, path, file) => dispatch =>
 
 // sign out the user from couchdb
 export const signOut = (firstName, lastName) => dispatch => {
-    if (userRemoteDBSync) 
-        userRemoteDBSync.cancel()
+    db.user.sync.cancel()
 
-    remotedb && remotedb.logOut().then(() => 
-        userRemoteDB && userRemoteDB.logOut().then(() =>
+    db.remote.logOut().then(() => 
+        db.user.remote.logOut().then(() =>
             dispatch({
                 type: SIGNED_OUT, 
                 payload: {
