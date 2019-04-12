@@ -27,7 +27,7 @@ describe('common actions', () => {
     })
 
     test('changeLanguage dispatches correct action and payload', () => {
-        store.dispatch(actions.changeLanguage(''))
+        store.dispatch(actions.changeLanguage({value:"en", label:"English"}))
         expect(store.getActions()).toMatchSnapshot()
     })
 

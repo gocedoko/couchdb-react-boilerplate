@@ -216,7 +216,7 @@ export const addUserImg = (username, path, file) => dispatch =>
 
 // sign out the user from couchdb
 export const signOut = (firstName, lastName) => dispatch => {
-    db.user.sync.cancel()
+    db.user && db.user.sync.cancel()
 
     db.remote.logOut().then(() => 
         db.user.remote.logOut().then(() =>

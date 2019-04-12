@@ -6,7 +6,10 @@ Array [
     "type": "SHOW_MENU",
   },
   Object {
-    "payload": "",
+    "payload": Object {
+      "label": "English",
+      "value": "en",
+    },
     "type": "LANGUAGE_CHANGED",
   },
 ]

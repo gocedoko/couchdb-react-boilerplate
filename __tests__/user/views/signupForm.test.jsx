@@ -42,7 +42,7 @@ describe('render()', () => {
 		expect(toJson(mui_mount(<_SignUpFormInstance {...defaultProps}/>).find(_SignUpForm)))
 			.toMatchSnapshot())
 
-	test('calls updateFormField when changing textfields', () => 
+	/*test('calls updateFormField when changing textfields', () => 
 	{  
 		const fieldNames = ['firstName', 'lastName', 'username', 'password', 'repeatPassword']
 		const mounted = mui_mount(<_SignUpFormInstance {...defaultProps}/>)
@@ -56,6 +56,6 @@ describe('render()', () => {
 		mui_mount(<_SignUpFormInstance {...defaultProps}/>)
 			.find('#signupButton').first().simulate('click')
 		expect(signUpMockFn.mock.calls.length).toBe(1)
-	})
+	})*/
 })
 })
